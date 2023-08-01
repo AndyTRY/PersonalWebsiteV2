@@ -21,11 +21,9 @@
         const word = splitStr[i];
 
         if (keywords.includes(word.replace(/,*$/, "").toLocaleLowerCase())){
-            if (word.endsWith(",")) splitStr[i+1] = `, ${splitStr[i+1]}`;
-
             boldedSplitArray.push(curString)
             boldedSplitArray.push(word.replace(/,*$/, ""))
-            curString = ""
+            curString = word.endsWith("," ) ? ", " : ""
         } else 
           curString = curString == "" ? word : `${curString} ${word}`
         
@@ -73,11 +71,14 @@
       <span class="dotSymbol">•</span>
       {#each dotJot as word, index}
       {#if index % 2 === 1}
-        <b class="highlight">{word}</b>
+        <b class="highlight">{` ${word}`}</b>
       {:else}
-        {word}
+        {#if word.startsWith(",") || index === 0}
+          {word}
+        {:else}
+          {` ${word}`}
+        {/if}
       {/if}
-      {#if index !== dotJot.length - 1}&nbsp;{/if}
       {/each}
     </p>
     </li>

@@ -3,7 +3,7 @@ import type { ExpCard_T } from "src/interface/ExpCard";
 export const cards: ExpCard_T[] = [
     {
       title: "Fullstack Developer",
-      tags: ["Work Experience", "Web", "Python", "Djanjo",  "Vue", "Docker", "Microservices"],
+      tags: ["Work Experience", "Web", "Python", "Flask",  "Vue", "Docker", "Microservices", "SQL"],
       description: "The following was a Fullstack developer role at Dash Hudson. I worked in a team responsible for maintaining and building up a set of microservices",
 
       exprList: [
@@ -19,32 +19,32 @@ export const cards: ExpCard_T[] = [
     },
 
     {
-      title: "Fullstack Developer",
-      tags: ["Work Experience", "Web", "Python", "Djanjo",  "Vue", "Docker", "Microservices"],
-      description: "The following was a Fullstack developer role at Dash Hudson. I worked in a team responsible for maintaining and building up a set of microservices",
+      title: "Application Developer",
+      tags: ["Work Experience", "Scripting", "Perl", "Python", "Terminal", "SQL"],
+      description: "The following was an Application Development role at CHASS @ UofT. I worked in a team of 2 mainly responsible for maintaining a set of data analytics and provisioning services",
 
       exprList: [
-        "Implemented Kafka for importing and exporting data between microservices",
-        "Implemented Celery task for cleaning soft-deleted records",
-        "Implemented a search tool in Vue, improving entry tasks for the CS team",
-        "Fixed various flakey tests, improving testing coverage of projects",
-        "Monitor Datadog for potential issues and present such issues to the team."
+        "Implemented email notifications for data-importing cron jobs, helping inform admin on the status of jobs",
+        "Automated data updates for specific procedures with scripts, eliminating the need for manual update steps.",
+        "Performed data migration of SDA datasets to a newer system, allowing the launch of the newer system to users",
+        "Use of Python, Perl, and Bash for writing and editing scripts",
       ],
 
-      imgSrc: "src/assets/dashHudsonLogo.png",
+      imgSrc: "src/assets/UofTLogo.jpg",
 
     },
-    // {
-    //   title: "Card 2",
-    //   tags: ["Tag X", "Tag Y"],
-    //   description: "Description for Card 2.",
-    //   imgSrc: "path/to/image2.jpg",
-    // },
-    // {
-    //   title: "Card 3",
-    //   tags: ["Tag XS", "Tag YS", "SNALJ"],
-    //   description: "Description for Card 2.",
-    //   imgSrc: "path/to/image2.jpg",
-    // },
-    // Add more card data objects as needed
+
+    {
+      title: "STATA Developer",
+      tags: ["Work Experience", "Scripting", "STATA", "Python"],
+      description: "The following was a Work Study at UofT at Kidney Health Education and Research Group (Nefros). A relatively short experience where I was tasked to check on the integrity of the data collected from patient studies ",
+
+      exprList: [
+        "Wrote scripts in Python and Stata to verify data integrity in patient studies"
+      ],
+
+      imgSrc: "src/assets/NefrosLogo.png",
+
+    },
+
 ];

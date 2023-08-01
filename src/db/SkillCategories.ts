@@ -3,11 +3,11 @@ export const categorySkills : Record<string, string[]> = {
     "Work/Project": ["Work Experience", "Projects"],
     "Languages": ["Python", "C", "Java", "Javascript"],
     "Web Frameworks": ["Djanjo", "NodeJs", "Svelte", "Vue"],
-    "Fields": ["Web", "OS", "Complier", "Image Processing", "Parallel Computing", "Networking", "3D Modeling"],
-    "Tools": ["Docker", "Git", "VsCode", "Bash/Terminal"],
+    "Fields": ["Web", "Scripting", "OS", "Complier", "Image Processing", "Parallel Computing", "Networking", "3D Modeling"],
+    "Tools": ["Docker", "Git", "VsCode", "Terminal"],
     "Scripting": ["Python (S)", "Perl", "Bash"],
     "3rd Party Apps" : ["Github"],
-    "Topics" : ["Microservices", "Kafka"]
+    "Topics" : ["Microservices", "Kafka", "SQL", "Postgresql"]
 }
     
 function createInvertedCategorySkills(categorySkills: Record<string, string[]>): Record<string, string> {
