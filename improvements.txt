@@ -1,6 +1,7 @@
-1.
-Filename: src/components/DepthButton.svelte
-Line: (29) $skills: 'projects','python','c','java','javascript','djanjo','nodejs','svelte','vue','web','scripting','os','complier','image-processing','parallel-computing','networking','cad-modeling','docker','git','vscode','terminal','perl','bash','github','microservices','kafka','sql';
-Comment:
-    Currently, Im manually placing the list of skills here. I'm unable to find a better way to dynamically assign the button background.
+## grep "Needs Improvement - <#>" to find locations
+
+
+1.  Currently, Im manually placing the list of skills here. I'm unable to find a better way to dynamically assign the button background.
     Ideally, this data would be sourced from a db file.
+
+    

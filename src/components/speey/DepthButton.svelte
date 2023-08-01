@@ -26,26 +26,18 @@
   
   <style lang="scss">
 
-    // NEEDS Improvement
-    // $skills: 'projects','python','c','java','javascript','djanjo','nodejs','svelte','vue','web','scripting','os','complier','image-processing','parallel-computing','networking','cad-modeling','docker','git','vscode','terminal','perl','bash','github','microservices','kafka','sql';
+    // NEEDS Improvement - 1
     $skills: 'python', 'nodejs', 'java', 'vue', 'kafka', 'c', 'git', 'bash', 'svelte', 'docker', 'typescript', 'django', 'web', 'postgresql', 'llvm', 'assembly', 'antlr', 'cplusplus', 'flask', 'matlab', 'compiler', 'ai';
+    $skillCategories: 'ai' , 'web', 'compiler';
     
     :root {
       --button-size: 82px
-      
-
-    }export text as svg
+    }
 
 
 
     .button-rim{
       background-color: black;
-    }
-
-
-    %test {
-      position: absolute;
-      content: '';
     }
 
     @each $skill in $skills{
@@ -54,7 +46,17 @@
       }
     }
     
+    @each $category in $skillCategories{
+      .#{$category} {
+        background-image: url('src/assets/skillCategoryIcons/#{$category}.svg');
+      }
+    }
+    
 
+    %test {
+      position: absolute;
+      content: '';
+    }
 
     .button-3d {  
       margin: 3px;

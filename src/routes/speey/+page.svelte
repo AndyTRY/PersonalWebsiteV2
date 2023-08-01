@@ -13,22 +13,34 @@
 	import {cards} from 'src/db/ExpCards';
 	console.log(cards)
 
+	import SkillsBottom from 'src/components/speey/SkillsBottom.svelte';
+
 	
   </script>
 
-<div class="text-column">
+<div class="page">
 	<h1>About this app</h1>
 
 	<ExpCardCarousel {cards}/> 
-	<div class="filler"></div>
 
-	<SkillsKeyboard/>
-	<SkillCategoryKeyboard/>
+
+	<SkillsBottom/>
 
 </div>
 
 <style>
-	.filler{
-		height: 10em;
+
+	.page{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgb(4, 4, 92);
+
+		gap: 2em;
+		margin: 0 0 0 0;
+
+		width: 100%;
 	}
+
+	
 </style>

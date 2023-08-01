@@ -15,7 +15,8 @@
         display: flex;
         gap: 20px;
         border-style: solid;
-        background:  linear-gradient(to bottom, grey,grey, grey,  grey);
+        background-color: black;
+        /* background:  linear-gradient(to bottom, grey,grey, grey,  grey); */
         /* background:  linear-gradient(to bottom, silver,grey, silver,  silver); */
         /* transform: perspective(200px) rotateX(10deg); */
         padding: 1em;
