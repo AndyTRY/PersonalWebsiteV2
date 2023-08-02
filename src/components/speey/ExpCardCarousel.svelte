@@ -3,7 +3,7 @@
   import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
   import type { ExpCard_T } from 'src/interface/ExpCard';
-	import ExpCard from './ExpCard.svelte';
+	import ExpCard from './ExpCardCarousel/ExpCard.svelte';
 
   export let cards:ExpCard_T[] = [];
   let items = ["https://thispersondoesnotexist.com/", "src/assets/UofTLogo.jpg"]

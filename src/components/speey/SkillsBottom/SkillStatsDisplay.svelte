@@ -3,6 +3,9 @@
 
     export let skillName = "Web";
     export let skillMetricValues: skillMetricValues_T = {"Count": 0, "Proficiency": 0}
+
+    import SkillMetric from "./SkillStatsDisplay/SkillMetric.svelte";
+    import SkillMetricInfo from "./SkillStatsDisplay/SkillMetricInfo.svelte";
 </script>
   
   <div class="skill-stats-display">
@@ -11,19 +14,16 @@
 
     <div class="skill-metrics">
         {#each skillMetrics as skillMetric}
-        <div class="skill-metric-shell">
+            <div class="skill-metric-shell">
 
-            <div class="skill-info hidden"> 
-                <div class="skill-info-text">{skillMetric}</div>
+                <div class="skill-info hidden"> 
+                    <SkillMetricInfo {skillMetric}/>
+                </div>
+
+                <div class="skill-metric">
+                    <SkillMetric skillMetric={skillMetric} skillMetricValue={skillMetricValues[skillMetric]}/>
+                </div>
             </div>
-
-            <div class="skill-metric skill-{skillMetric.toLowerCase()}">
-                <img src="src/assets/otherIcons/skill{skillMetric}.svg"  alt={skillMetric}>
-                <div class="skill-metric-value">{skillMetricValues[skillMetric]}</div>
-            </div>
-
-
-        </div>
         {/each}
     </div>
   </div>
@@ -53,15 +53,24 @@
         margin: 0;
         
         border-style: solid;
-
     }
 
     .skill-metrics{
         display: flex;
         flex-direction: column;
+    }
 
-        /* border-style: solid; */
-        /* gap: 10px; */
+    %transition-property {
+        transition: opacity 0.3s ease;
+    }
+
+    .skill-metric{
+        @extend %transition-property;
+    }
+
+    .skill-info{
+        @extend %transition-property;
+        position: absolute;
     }
 
     .skill-metric-shell:hover .skill-metric{
@@ -71,36 +80,6 @@
     .skill-metric-shell:hover .skill-info{
         opacity: 1;
     }
-
-    %box {
-        display: flex;
-        flex-direction: row; 
-        border-style: solid;
-        padding: 10px;
-        transition: opacity 0.3s ease;
-    }
-
-    .skill-metric{
-        @extend %box;
-    }
-
-    .skill-metric-value{
-        text-align: center;
-        width: 160px;
-    }
-
-    img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .skill-info{
-        @extend %box;
-        position: absolute;
-        height: 40px;
-        width: 175.2px;
-    }
-
 
     .hidden{
         opacity: 0;

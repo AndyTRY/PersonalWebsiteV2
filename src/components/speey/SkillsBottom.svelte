@@ -1,8 +1,8 @@
 <script lang="ts">
 
-	import SkillsKeyboard from 'src/components/speey/SkillsKeyboard.svelte';
-	import SkillCategoryKeyboard from 'src/components/speey/SkillCategoryKeyboard.svelte';
-    import SkillStatsDisplay from './SkillStatsDisplay.svelte';
+	import SkillsKeyboard from './SkillsBottom/SkillsKeyboard.svelte';
+	import SkillCategoryKeyboard from './SkillsBottom/SkillCategoryKeyboard.svelte';
+    import SkillStatsDisplay from './SkillsBottom/SkillStatsDisplay.svelte';
 
   </script>
 
@@ -27,10 +27,9 @@
         flex-direction: row;
         justify-content: space-between;
         gap: 2em;
+        
 
         width: 90%;
-
-
 	}
 
 

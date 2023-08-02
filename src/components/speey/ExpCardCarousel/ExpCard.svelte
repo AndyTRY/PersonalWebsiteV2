@@ -4,8 +4,8 @@
 
     export let card: ExpCard_T;
 
-    import Tag from "src/components/speey/Tag.svelte"
-    import DotJotExprienceList from "./DotJotExprienceList.svelte";
+    import Tag from "./ExpCard/Tag.svelte"
+    import DotJotExprienceList from "./ExpCard/DotJotExprienceList.svelte";
 </script>
   
   <style>
