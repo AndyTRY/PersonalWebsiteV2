@@ -6,14 +6,13 @@
 <script lang="ts">
 
 	import ExpCardCarousel from 'src/components/speey/ExpCardCarousel.svelte';
-	import DepthButton from 'src/components/speey/DepthButton.svelte';
 
-	import SkillsKeyboard from 'src/components/speey/SkillsKeyboard.svelte';
-	import SkillCategoryKeyboard from 'src/components/speey/SkillCategoryKeyboard.svelte';
 	import {cards} from 'src/db/ExpCards';
 	console.log(cards)
 
 	import SkillsBottom from 'src/components/speey/SkillsBottom.svelte';
+
+	import Terts from 'src/components/speey/Terts.svelte'
 
 	
   </script>
@@ -23,9 +22,9 @@
 
 	<ExpCardCarousel {cards}/> 
 
-
 	<SkillsBottom/>
 
+	<Terts/>
 </div>
 
 <style>
