@@ -1,4 +1,4 @@
-export const skillMetrics = ["Count", "Proficiency"] as const
+export const skillMetrics = ["Count", "Level"] as const
 
 export type skillMetric_T = typeof skillMetrics[number]
 

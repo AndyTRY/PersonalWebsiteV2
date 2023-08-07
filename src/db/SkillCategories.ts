@@ -1,8 +1,8 @@
 
 export const categorySkills : Record<string, string[]> = {
     "Work/Project": ["Work Experience", "Projects"],
-    "Languages": ["Python", "C", "Java", "Javascript"],
-    "Web Frameworks": ["Djanjo", "NodeJs", "Svelte", "Vue"],
+    "Languages": ["Python", "C", "Java", "Javascript", "Matlab", "LLVM-IR", "STATA", "Cplusplus", "Assembly"],
+    "Web Frameworks": ["Flask", "NodeJs", "Svelte", "Vue"],
     "Fields": ["Web", "Scripting", "OS", "Complier", "Image Processing", "Parallel Computing", "Networking", "3D Modeling"],
     "Tools": ["Docker", "Git", "VsCode", "Terminal"],
     "Scripting": ["Python (S)", "Perl", "Bash"],

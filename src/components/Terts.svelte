@@ -1,5 +1,5 @@
-<script>
-  import Modal from './Modal.svelte';
+<!-- <script>
+  import Modal from './modals/CenterFixed.svelte';
   import Popout1 from './Popout1.svelte';
 
 
@@ -44,4 +44,4 @@
     background-color: #f0f0f0;
     cursor: pointer;
   }
-</style>
+</style> -->

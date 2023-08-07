@@ -34,8 +34,6 @@
       --button-size: 82px
     }
 
-
-
     .button-rim{
       background-color: black;
     }
@@ -63,7 +61,6 @@
       height: var(--button-size);
       width: var(--button-size);
 
-      // background-image: url('src/assets/skillIcons/java.svg');
       background-position: center;
       background-size: contain; /* Use contain to preserve aspect ratio */
       background-repeat: no-repeat;

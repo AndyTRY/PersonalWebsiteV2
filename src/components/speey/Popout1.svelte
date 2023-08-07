@@ -1,1 +1,0 @@
-<div class="hover-container"> Some popup</div>

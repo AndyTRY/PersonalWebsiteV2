@@ -1,31 +1,29 @@
-<svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
+
 
 <script lang="ts">
 
-	import ExpCardCarousel from 'src/components/speey/ExpCardCarousel.svelte';
+	import ExpCardCarousel from 'src/components/ExpCardCarousel.svelte';
 
 	import {cards} from 'src/db/ExpCards';
 	console.log(cards)
 
-	import SkillsBottom from 'src/components/speey/SkillsBottom.svelte';
+	import SkillsBottom from 'src/components/SkillsBottom.svelte';
 
-	import Terts from 'src/components/speey/Terts.svelte'
+
 
 	
   </script>
 
 <div class="page">
-	<h1>About this app</h1>
 
 	<ExpCardCarousel {cards}/> 
 
 	<SkillsBottom/>
 
-	<Terts/>
+	<!-- <Terts/>
+	<Terters/> -->
 </div>
+
 
 <style>
 

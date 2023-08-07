@@ -2,7 +2,7 @@
     import { skillMetrics, type skillMetricValues_T } from "src/interface/SkillMetric";
 
     export let skillName = "Web";
-    export let skillMetricValues: skillMetricValues_T = {"Count": 0, "Proficiency": 0}
+    export let skillMetricValues: skillMetricValues_T = {"Count": 0, "Level": 0}
 
     import SkillMetric from "./SkillStatsDisplay/SkillMetric.svelte";
     import SkillMetricInfo from "./SkillStatsDisplay/SkillMetricInfo.svelte";
@@ -62,6 +62,7 @@
 
     %transition-property {
         transition: opacity 0.3s ease;
+    
     }
 
     .skill-metric{
@@ -74,6 +75,7 @@
     }
 
     .skill-metric-shell:hover .skill-metric{
+        visibility: hidden;
         opacity: 0;
     }
 
