@@ -6,16 +6,17 @@
 
     import Tag from "./ExpCard/Tag.svelte"
     import DotJotExprienceList from "./ExpCard/DotJotExprienceList.svelte";
+    import ImageCarousel from "./ExpCard/ImageCarousel.svelte";
 </script>
   
   <style>
     .card {
       display: flex;
       border: 1px solid black;
-      border-radius: 8px;
-      padding: 20px 60px 16px 50px;
+      border-radius: 10px;
+      padding: 0 0 16px 50px;
 
-      width: 60em; /* Set the width to your desired value */
+      width: 1200px; /* Set the width to your desired value */
       max-width: 100%; /* Control the maximum width of the card */
       box-sizing: border-box; /* Include padding and border in the width calculation */
       height: 25em;
@@ -53,6 +54,8 @@
       display: flex;
       flex-direction: column;
       margin-right: 40px; /* Add some margin to separate the image from the left content */
+
+      margin-top: 20px;
    }
   
     .title {
@@ -88,6 +91,10 @@
       border-style: solid;
       border-width: thin;
     }
+
+    .description{
+      width: 90%;
+    }
   </style>
   
   <div class="card">
@@ -105,11 +112,6 @@
       <DotJotExprienceList exprList={card.exprList} />
     </div>
   
-    {#if card.imgSrc}
-    <div class="right-content">
-      <!-- Image -->
-      <img class="image" src="{card.imgSrc}" alt="{card.title}" />
-    </div>
-  {/if}
+    <ImageCarousel imgSrces={card.imgSrces}/>
   </div>
 

@@ -28,9 +28,10 @@
         justify-content: space-between;
         gap: 2em;
         
-
-        width: 90%;
+ 
+        width: 70%
 	}
+
 
 
 </style>

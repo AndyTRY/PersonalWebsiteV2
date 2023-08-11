@@ -7,11 +7,10 @@
 
     onMount(() => {
       boldedSplitExprList = exprList.map(expr => getBoldedSplitArrays(expr, keywords));
-      console.log(boldedSplitExprList)
     });
 
     // Can potentially move to another file. Although only used here at the moment.
-    // DS: BoldedSplitArray. Every 2nd element in the array is a keyword. Flattening the array gives you the original string
+    // DS: BoldedSplitArray: Every 2nd element in the array is a keyword. Flattening the array gives you the original string
     function getBoldedSplitArrays(str: string, keywords: string[]) {
       const boldedSplitArray = [];
       const splitStr = str.split(' ');
@@ -43,6 +42,8 @@
 
   .experience-list{
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .experience-point {
@@ -86,6 +87,6 @@
 </ul>
 
 {:else}
-  <p>Loading data ...</p> <!-- Render a loader or any placeholder text while the data is being fetched -->
+  <p>Loading data ...</p> 
 {/if}
 

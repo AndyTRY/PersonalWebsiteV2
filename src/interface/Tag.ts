@@ -13,6 +13,5 @@ const skills = Array.from(unionSet);
 
 type stype = typeof skills
 
-console.log(skills)
 
 export type Tag_T = stype[number]

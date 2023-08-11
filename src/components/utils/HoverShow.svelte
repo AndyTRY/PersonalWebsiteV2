@@ -21,6 +21,7 @@
         visibility: hidden;
         top: -33px;
         left: 53px;
+        z-index: 1;
     }
 
     .wrapper:hover .hover-show-element{

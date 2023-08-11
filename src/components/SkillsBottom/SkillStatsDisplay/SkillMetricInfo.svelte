@@ -25,8 +25,9 @@
     %box {
         display: flex;
         flex-direction: row; 
-        border-style: solid;
-        padding: 10px;
+
+        padding: 10px 10px 10px 15px;
+
         transition: opacity 0.3s ease;
     }
 
@@ -38,7 +39,7 @@
     .skill-info{
         @extend %box;
         height: 40px;
-        width: 175.2px;
+        width: 170px;
 
         gap: 10px;
     }

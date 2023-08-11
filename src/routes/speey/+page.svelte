@@ -5,9 +5,11 @@
 	import ExpCardCarousel from 'src/components/ExpCardCarousel.svelte';
 
 	import {cards} from 'src/db/ExpCards';
-	console.log(cards)
+
 
 	import SkillsBottom from 'src/components/SkillsBottom.svelte';
+
+	import Tre from 'src/components/utils/Tre.svelte'
 
 
 
@@ -16,12 +18,16 @@
 
 <div class="page">
 
-	<ExpCardCarousel {cards}/> 
+	<Tre/>
+
+	<ExpCardCarousel {cards} />
 
 	<SkillsBottom/>
 
 	<!-- <Terts/>
 	<Terters/> -->
+
+	<div class="padding"></div>
 </div>
 
 
@@ -31,12 +37,17 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background-color: rgb(4, 4, 92);
+		background-color: grey;
 
 		gap: 2em;
 		margin: 0 0 0 0;
 
 		width: 100%;
+
+		padding-top: 10em;
+	}
+	.padding{
+		height: 500px;
 	}
 
 	

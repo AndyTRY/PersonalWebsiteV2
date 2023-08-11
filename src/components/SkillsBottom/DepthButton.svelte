@@ -1,24 +1,37 @@
 
-
-    
-
-
-
-  
-  <script lang="ts">
+<script lang="ts">
     export let skillName = ""
 
-    // import { skillCategory } from "src/db/SkillCategories";
+    let isButtonClicked = false;
 
-    // const skills = Object.keys(skillCategory).map(x => x.toLowerCase());
-    // console.log(skills.toString());
-    
-  </script>
+    import { hoveredSkill } from 'src/stores/store';
 
-  <button class="button-3d {skillName.toLowerCase()}">
+    function handleButtonClick() {
+      isButtonClicked = !isButtonClicked;
+    }
+
+    function handleButtonHover() {
+      hoveredSkill.set(skillName);
+    }
+
+</script>
+
+<div class="wrapper">
+
+  <div class="led {isButtonClicked ? 'clicked' : ''}">•</div>
+
+    <button class="button-3d 
+      {skillName.toLowerCase()}  
+      {isButtonClicked ? 'clicked' : ''}" 
+    on:click={handleButtonClick}    
+    on:mouseenter={handleButtonHover} 
+  >
+  </button>
+</div>
+
     
   
-  </button>
+
 
 
 
@@ -27,7 +40,7 @@
   <style lang="scss">
 
     // NEEDS Improvement - 1
-    $skills: 'python', 'nodejs', 'java', 'vue', 'kafka', 'c', 'git', 'bash', 'svelte', 'docker', 'typescript', 'django', 'web', 'postgresql', 'llvm', 'assembly', 'antlr', 'cplusplus', 'flask', 'matlab', 'compiler', 'ai';
+    $skills: 'python', 'nodejs', 'java', 'vue', 'kafka', 'c', 'git', 'bash', 'svelte', 'docker', 'typescript', 'django', 'web', 'postgresql', 'llvm', 'assembly', 'antlr', 'cplusplus', 'flask', 'matlab';
     $skillCategories: 'ai' , 'web', 'compiler';
     
     :root {
@@ -76,6 +89,7 @@
       
       /* transform: perspective(200px) rotateX(45deg); */
       transition: transform 0.3s ease;
+      transition: invert 0.3 ease;
       transform: scale(0.80) translate(-20%, -20%);
       
       border-style: solid;
@@ -89,9 +103,6 @@
         left: 2px;
         transform: skewX(45deg);
         background-color: darken(white, 20%);
-
-      
-    
       }
 
       &::after {
@@ -118,7 +129,36 @@
           bottom: -3px;
         }	
       }
+      
 
+      &.clicked {
+        filter: invert(100%);
+
+        &::before {
+          background-color: white
+        }
+        &::after {
+          background-color: white
+        }
+
+      }
+
+    }
+
+    .led{
+        position: relative;
+        visibility: hidden;
+        z-index: 1;
+        left:25px;
+
+        &.clicked{
+          color: white;
+          visibility: visible;
+        }
+      }
+
+    .wrapper:hover .led{
+      color: blue;
     }
 
   </style>

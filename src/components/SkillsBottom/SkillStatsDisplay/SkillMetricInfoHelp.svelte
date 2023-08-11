@@ -32,6 +32,7 @@
         border-style: solid;
 
         font-size: 32px;
+        z-index: -1;
     }
 
     hr{

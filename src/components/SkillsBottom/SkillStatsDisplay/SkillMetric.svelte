@@ -19,12 +19,18 @@
     %box {
         display: flex;
         flex-direction: row; 
-        border-style: solid;
-        padding: 10px;
+        padding: 10px 10px 10px 20px;
+
+
+        width: 165px;
+        height: 50px
+
+        
     }
 
     .skill-metric{
         @extend %box;
+        
     }
 
     .skill-metric-value{
