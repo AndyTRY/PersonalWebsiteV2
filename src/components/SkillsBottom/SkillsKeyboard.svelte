@@ -2,7 +2,9 @@
     import DepthButton from "./DepthButton.svelte";
     // export let skillCategory = "Languagues";
     // export let skillNames = ["Python", "Java", "NodeJs", "Postgresql", "Vue", "Docker", "bash", "django", "kafka", "svelte", "web", "git", "typescript", "llvm", "assembly", "antlr", "c", "cplusplus"];
-    export let skillNames = ["llvm", "assembly", "antlr", "c", "cplusplus", "flask", "matlab" ];
+    export let skillNames = ["llvm", "assembly", "antlr", "c", "cplusplus", "flask", "matlab"];
+
+    import 'src/styles/variables.scss'
 </script>
 
 <div class="skills-keyboard">
@@ -12,16 +14,9 @@
 </div>
 
 
-<style>
+<style lang="scss">
+    @use 'src/styles/variables.scss';
     .skills-keyboard{
-        display: flex;
-        gap: 20px;
-        border-style: solid;
-        background-color: black;
-        /* background:  linear-gradient(to bottom, grey, grey); */
-        /* background:  linear-gradient(to bottom, silver,grey, silver,  silver); */
-        /* transform: perspective(200px) rotateX(10deg); */
-        padding: 0 1em 1em 1em;
-        
+        @extend .keyboardStyle 
     }
 </style>

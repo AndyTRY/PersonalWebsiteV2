@@ -1,6 +1,6 @@
 <script lang="ts">
     import DepthButton from "./DepthButton.svelte";
-    export let skillNames = ["compiler", "web", "ai"];
+    export let skillNames = ["Compiler", "Web", "AI", "Parallel Processing", 'OS', '3D Modeling'];
 </script>
 
 <div class="skills-keyboard">
@@ -10,16 +10,11 @@
 </div>
 
 
-<style>
+<style lang='scss'>
+
+    @use 'src/styles/variables.scss';
+
     .skills-keyboard{
-        display: flex;
-        gap: 20px;
-        border-style: solid;
-        background-color: black;
-        /* background:  linear-gradient(to bottom, grey,grey, grey,  grey); */
-        /* background:  linear-gradient(to bottom, silver,grey, silver,  silver); */
-        /* transform: perspective(200px) rotateX(10deg); */
-        padding: 1em;
-        
+        @extend .keyboardStyle   
     }
 </style>

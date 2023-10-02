@@ -1,0 +1,24 @@
+/* variables.css */
+
+:root {
+    --main-color: #3498db;
+
+    --content-width-percent: 70%;
+}
+
+.keyboardStyle {
+    display: flex;
+    // gap: 20px;
+
+    background-color: #282728;
+    
+
+    // padding: 1em;
+    padding-left: 10px;
+
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--main-color);
+};
+
+  

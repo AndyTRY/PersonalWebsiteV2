@@ -11,11 +11,6 @@ function buildSkillCounts(){
       if (tag in skillCounts)   skillCounts[tag] += 1
       else                      skillCounts[tag] = 1
 
-
-    for (const skill in skillCounts){
-        console.log(`${skill} : ${skillCounts[skill]}`);
-    }
-
     return skillCounts
 }
 

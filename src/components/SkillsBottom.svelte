@@ -11,7 +11,7 @@
     <SkillStatsDisplay/>
 
 
-    <div class="skill-keyboard">
+    <div class="skill-keyboards">
         <SkillsKeyboard/>
         <SkillCategoryKeyboard/>
     </div>
@@ -29,8 +29,24 @@
         gap: 2em;
         
  
-        width: 70%
+        width: 100%;
+
+        background-color: black;
+        
+        border-style: solid;
+        border-radius: 15px 15px 0 0;
+        /* border-color: var(--main-color); */
+        border-bottom: none;
+
+        padding-bottom: 3em;
 	}
+
+    .skill-keyboards{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+    }
 
 
 

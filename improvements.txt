@@ -4,4 +4,6 @@
 1.  Currently, Im manually placing the list of skills here. I'm unable to find a better way to dynamically assign the button background.
     Ideally, this data would be sourced from a db file.
 
+2. Ideally I figure a way to do this in the markup {#each} portion. But Svelte dosen't seem to allow Typescript in markup so its hard type annotations here.
+   I also need to change the indexing so that the seperate for each loops must continoue of the previous one
     

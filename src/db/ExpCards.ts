@@ -1,4 +1,6 @@
 import type { ExpCard_T } from "src/interface/ExpCard";
+import { MediaType} from "src/interface/MediaTypes"; 
+import type {Image, SketchFabModel, Video} from "src/interface/MediaTypes"
 
 export const cards: ExpCard_T[] = [
 
@@ -17,8 +19,12 @@ export const cards: ExpCard_T[] = [
         "Monitor Datadog for potential issues and present such issues to the team."
       ],
 
-      imgSrces: [
-        "src/assets/dashHudsonLogo.png"
+      mediaSources: [
+        {
+          type: MediaType.Image,
+          caption: null,
+          imageUrl: "src/assets/dashHudsonLogo.png"
+        } as Image
       ],
 
     },
@@ -35,8 +41,12 @@ export const cards: ExpCard_T[] = [
         "Use of Python, Perl, and Bash for writing and editing scripts",
       ],
 
-      imgSrces: [
-        "src/assets/UofTLogo.jpg"
+      mediaSources: [
+        {
+          type: MediaType.Image,
+          caption: null,
+          imageUrl: "src/assets/UofTLogo.jpg"
+        } as Image
       ],
 
     },
@@ -50,8 +60,12 @@ export const cards: ExpCard_T[] = [
         "Wrote scripts in Python and Stata to verify data integrity in patient studies"
       ],
 
-      imgSrces: [
-        "src/assets/NefrosLogo.png"
+      mediaSources: [
+        {
+          type: MediaType.Image,
+          caption: null,
+          imageUrl: "src/assets/NefrosLogo.png"
+        } as Image
       ],
 
     },
@@ -71,7 +85,7 @@ export const cards: ExpCard_T[] = [
         "Implemented real-time page highlighting with sockets, allowing users to interact in real time with highlights"
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -85,7 +99,7 @@ export const cards: ExpCard_T[] = [
         "Setup API gateway to route requests properly",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -100,7 +114,7 @@ export const cards: ExpCard_T[] = [
         "Implemented parallel file system access, improving file access latency",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -114,7 +128,7 @@ export const cards: ExpCard_T[] = [
         "Implemented laplacian filter kernels for images with CUDA using parallel strategies on GPU",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -131,7 +145,7 @@ export const cards: ExpCard_T[] = [
         "Perfmored LLVM IR optimization techniques: memory to register promotion",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -148,7 +162,7 @@ export const cards: ExpCard_T[] = [
         "Implemented profile searching",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -165,7 +179,7 @@ export const cards: ExpCard_T[] = [
         "Implemented back-propagation algorithm in NeuralNet for digit classification in C",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -178,7 +192,26 @@ export const cards: ExpCard_T[] = [
         "Implemented an obstacle collision game in Assembly",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [
+        {
+          type: MediaType.Video,
+          caption: "Trained AI in simulated road game with minimal obstancles",
+          videoUrl: "src/assets/videos/sample2.mp4",
+          mimeType: "mp4"
+        } as Video,
+        {
+          type: MediaType.Video,
+          caption: "Original Image",
+          videoUrl: "src/assets/videos/sample2.mp4",
+          mimeType: "mp4"
+        } as Video,
+        {
+          type: MediaType.Video,
+          caption: "Original Image",
+          videoUrl: "src/assets/videos/sample2.mp4",
+          mimeType: "mp4"
+        } as Video,
+      ],
 
     },
 
@@ -192,7 +225,7 @@ export const cards: ExpCard_T[] = [
         "Digit classification with decision-tree model"
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -205,13 +238,25 @@ export const cards: ExpCard_T[] = [
         "Implemented image inpainting using RBF Regression to restore images courrupted with colored text",
       ],
 
-      imgSrces:  [         
-        "src/assets/Inpainting-original.png",
-        "src/assets/Inpainting-corrupted.png",
-        "src/assets/Inpainting-restored.png",
-        "src/assets/Inpainting-original.png",
-        "src/assets/Inpainting-corrupted.png",
-        "src/assets/Inpainting-restored.png"
+      mediaSources:  [         
+        {
+          type: MediaType.Image,
+          caption: "Original Image",
+          imageUrl: "src/assets/Inpainting-original.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Corrupted Image",
+          imageUrl: "src/assets/Inpainting-corrupted.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Restored image",
+          imageUrl: "src/assets/Inpainting-restored.png"
+        } as Image,
+
       ],
 
     },
@@ -228,7 +273,7 @@ export const cards: ExpCard_T[] = [
         "Implemented simple frontend to display results",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -242,7 +287,7 @@ export const cards: ExpCard_T[] = [
         "Implemented website design and interactoins with Svelte",
       ],
 
-      imgSrces:  [],
+      mediaSources:  [],
 
     },
 
@@ -259,30 +304,31 @@ export const cards: ExpCard_T[] = [
         "Finishing of car which involves sanding and attaching axels, bearings, wheel, and other 3D printed parts",
       ],
 
-      imgSrces: [
-        "src/assets/dashHudsonLogo.png"
+      mediaSources: [
+        {
+          type: MediaType.SketchFabModel,
+          caption: "Recreation of Infinitude (SketchFab)",
+          embedHTML: `<iframe title="Infinitude Recreate" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="174" height="174" src="https://sketchfab.com/models/25a2169d42ec4c0cae11d4d1d455ba1f/embed?ui_theme=dark"> </iframe>`
+        } as SketchFabModel,
+
+        {
+          type: MediaType.SketchFabModel,
+          caption: "Recreation of FastPayce (SketchFab)",
+          embedHTML: `<div class="sketchfab-embed-wrapper"> <iframe title="FastPayce_Recreate" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="174" height="174" src="https://sketchfab.com/models/e25927736a8b4f2db7391399b779f2a4/embed?ui_theme=dark"> </iframe> </div>`
+        } as SketchFabModel,
+
+        {
+          type: MediaType.SketchFabModel,
+          caption: "Team's inital car",
+          embedHTML: `<div class="sketchfab-embed-wrapper"> <iframe title="Kairos" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="174" height="174" src="https://sketchfab.com/models/0fc723b2229840adb17a0e6b77f43ad2/embed?ui_theme=dark"> </iframe> </div>`
+        } as SketchFabModel,
+        
       ],
 
     },
 
 
-    
-
-    
-
-    
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
 ];
+
+export const workExperienceCards: ExpCard_T[] = cards.filter(card => card.tags.includes("Work Experience"));
+export const projectCards: ExpCard_T[] = cards.filter(card => card.tags.includes("Project"));

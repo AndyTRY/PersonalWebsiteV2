@@ -6,11 +6,19 @@
 
     import Tag from "./ExpCard/Tag.svelte"
     import DotJotExprienceList from "./ExpCard/DotJotExprienceList.svelte";
-    import ImageCarousel from "./ExpCard/ImageCarousel.svelte";
+    import MediaCarousel from "./ExpCard/MediaCarousel.svelte";
+
+    import 'src/styles/variables.scss';
+
 </script>
   
   <style>
     .card {
+      scroll-padding: 0 0 0 0;
+
+
+
+
       display: flex;
       border: 1px solid black;
       border-radius: 10px;
@@ -21,7 +29,9 @@
       box-sizing: border-box; /* Include padding and border in the width calculation */
       height: 25em;
 
-      background: linear-gradient(to bottom right, silver, white, white, white);/* Background gradient */
+      /* background: linear-gradient(to bottom right, silver, white, white, white);*/
+      background-color: var(--main-color);
+
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 3px 12px rgba(0, 0, 0, 0.05);  
 
       position: relative; /* Needed for the pseudo-element */
@@ -112,6 +122,6 @@
       <DotJotExprienceList exprList={card.exprList} />
     </div>
   
-    <ImageCarousel imgSrces={card.imgSrces}/>
+    <MediaCarousel mediaSources={card.mediaSources}/>
   </div>
 

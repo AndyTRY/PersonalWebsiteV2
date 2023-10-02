@@ -10,6 +10,8 @@
 
     import { skillCounts } from "src/db/SkillCounts";
 
+    import 'src/styles/variables.scss'
+
 
 
     function capitalizeFirstLetter(str: string) {
@@ -44,9 +46,6 @@
         flex-direction: column;
         max-width: 100%;
 
-
-        margin-top: 5px;
-
         width: 200px;
         height: fit-content;
 
@@ -56,10 +55,13 @@
         border-style: solid;
 
         border-radius: 10px;
-        border-color: white;
+        border-color: var(--main-color);;
 
-        background-color: white;
+        background-color: var(--main-color);
+
     }
+
+    
 
 
 
@@ -68,7 +70,7 @@
         padding: 10px 0 18px 20px;
         margin: 0;
 
-        background-color: white;
+        background-color: var(--main-color);;
         
     }
 
@@ -82,14 +84,14 @@
         top: -6px;
         left: -12px;
         background-color: black;
-        border-style: solid;
+        border-style: none;
     }
 
     .skill-metrics{
         
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: var(--main-color);
 
         // border-color: white;
         // border-style: solid;
