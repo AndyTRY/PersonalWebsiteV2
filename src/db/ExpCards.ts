@@ -1,4 +1,4 @@
-import type { ExpCard_T } from "src/interface/ExpCard";
+import { ExperienceType, type ExpCard_T } from "src/interface/ExpCard";
 import { MediaType} from "src/interface/MediaTypes"; 
 import type {Image, SketchFabModel, Video} from "src/interface/MediaTypes"
 
@@ -8,7 +8,9 @@ export const cards: ExpCard_T[] = [
     // Work Experience 
     {
       title: "Fullstack Developer",
-      tags: ["Work Experience", "Web", "Python", "Flask",  "Vue", "Docker", "Microservices", "SQL"],
+      experienceType: ExperienceType.WorkExperience,
+      fields: ["Web", "Microservices"],
+      tags: ["Python", "Flask",  "Vue", "Docker","SQL"],
       description: "The following was a Fullstack developer role at Dash Hudson. I worked in a team responsible for maintaining and building up a set of microservices",
 
       exprList: [
@@ -31,7 +33,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Application Developer",
-      tags: ["Work Experience", "Scripting", "Perl", "Python", "Terminal", "SQL"],
+      experienceType: ExperienceType.WorkExperience,
+      fields: ["Scripting", "Web"],
+      tags: ["Scripting", "Perl", "Python", "Terminal", "SQL"],
       description: "The following was an Application Development role at CHASS @ UofT. I worked in a team of 2 mainly responsible for maintaining a set of data analytics and provisioning services",
 
       exprList: [
@@ -53,7 +57,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "STATA Developer",
-      tags: ["Work Experience", "Scripting", "STATA", "Python"],
+      experienceType: ExperienceType.WorkExperience,
+      fields: ["Scripting"],
+      tags: ["STATA", "Python"],
       description: "The following was a Work Study at UofT at Kidney Health Education and Research Group (Nefros). A relatively short experience where I was tasked to check on the integrity of the data collected from patient studies ",
 
       exprList: [
@@ -76,7 +82,9 @@ export const cards: ExpCard_T[] = [
     // Projects
     {
       title: "Collaboration Ereader",
-      tags: ["Project", "Web", "Svelte", "NodeJs", "MongoDB", "Typescript"],
+      experienceType: ExperienceType.Project,
+      fields: ["Web"],
+      tags: ["Svelte", "NodeJs", "MongoDB", "Typescript"],
       description: "A final project for my web-dev course at UofT: CSCC09. It is a platform where users can upload books and collaboartive interact with them",
 
       exprList: [
@@ -91,7 +99,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Microservice demo",
-      tags: ["Project", "Web", "Java", "Maven", "SQL", "Neo4j", "MongoDB", "Docker"],
+      experienceType: ExperienceType.Project,
+      fields: ["Web", "Microservices"],
+      tags: ["Java", "Maven", "SQL", "Neo4j", "MongoDB", "Docker"],
       description: "A project form a software course at UofT: CSCC01. The premise is a backend API server for a pseudo taxi bussiness",
 
       exprList: [
@@ -105,7 +115,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "PintOS",
-      tags: ["Project", "OS", "C", "Docker"],
+      experienceType: ExperienceType.Project,
+      fields : ["OS"],
+      tags: ["C", "Docker"],
       description: "A project form an OS course at UofT: CSCC69. The project invloved adding features and extending exisiting ones in an instructional OS (an OS developed for teaching purposes by) ",
 
       exprList: [
@@ -120,7 +132,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Parallel Processing Image Filters",
-      tags: ["Project", "Parallel Processing", "C", "Cuda"],
+      experienceType: ExperienceType.Project,
+      fields: ["Parallel Processing", "Image Processing"],
+      tags: ["C", "Cuda"],
       description: "Serveral projects form an parallel computing course at UofT: CSC367. Projects invovled implementing methods of optimizing image processing with parallelism techniques",
 
       exprList: [
@@ -134,7 +148,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "MiniC Compiler",
-      tags: ["Project", "Compiler", "Cplusplus", "LLVM", "Antlr"],
+      experienceType: ExperienceType.Project,
+      fields: ["Complier"],
+      tags: ["C++", "LLVM", "Antlr"],
       description: "A projects form a compilers course at UofT: CSC488. The project invloved building a compiler for the langauge MiniC (a subset of C).",
 
       exprList: [
@@ -152,7 +168,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Social Teaching Platform",
-      tags: ["Project", "Web", "NodeJs", "React", "MongoDB"],
+      experienceType: ExperienceType.Project,
+      fields: ["Web"],
+      tags: ["NodeJs", "React", "MongoDB"],
       description: "A final project from a software course at UofT: CSC01. The involved buidling a teaching plafform for teachers and students",
 
       exprList: [
@@ -169,7 +187,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "AI Projects",
-      tags: ["Project", "AI", "Matlab", "C"],
+      experienceType: ExperienceType.Project,
+      fields: ["AI"],
+      tags: ["Matlab", "C"],
       description: "A collection of projects from an AI course at UofT: CSCD84.",
 
       exprList: [
@@ -185,7 +205,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Game Project",
-      tags: ["Project", "Assembly"],
+      experienceType: ExperienceType.Project,
+      fields: [],
+      tags: ["Assembly"],
       description: "A final project for a computer organization course at UofT: CSCB58",
 
       exprList: [
@@ -217,7 +239,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Digit classification",
-      tags: ["Project", "C",],
+      experienceType: ExperienceType.Project,
+      fields: ["Parallel Processing", "AI"],
+      tags: ["C", "Unix"],
       description: "Several projects from a software course at UofT: CSCC09. It involved using low level tool software tools to implement Ml algorithms",
 
       exprList: [
@@ -231,7 +255,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Image Inpainting",
-      tags: ["Project", "Image Processing", "AI", "Python",],
+      experienceType: ExperienceType.Project,
+      fields: ["Image Processing", "AI"],
+      tags: ["Python", "Numpy", "Jupyter"],
       description: "A projects from a machine learning course at UofT: CSCC11. It involved using techniques regression to perform image inpainting.",
 
       exprList: [
@@ -264,7 +290,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Product Search Aggregator",
-      tags: ["Project", "Web", "Scripting", "Python", "NodeJs"],
+      experienceType: ExperienceType.Project,
+      fields: ["Web", "Scripting"],
+      tags: ["Python", "NodeJs"],
       description: "A personal project. The purpose is a search aggregation platform where searching for a product would return resutls form sites like Amazon, Best Buy, etc in 1 place.",
 
       exprList: [
@@ -279,7 +307,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "Personal Website",
-      tags: ["Project", "Web", "Svelte", "Typescript", "AWS"],
+      experienceType: ExperienceType.Project,
+      fields: ["Web"],
+      tags: ["Svelte", "Typescript", "AWS"],
       description: "Should I be listing the building of my personal website that your currently on as an experience? I decided why not.",
 
       exprList: [
@@ -294,7 +324,9 @@ export const cards: ExpCard_T[] = [
 
     {
       title: "F1 in schools",
-      tags: ["Project", "3D Modeling", "AutoCad", "CNC Routing", "3D printing"],
+      experienceType: ExperienceType.Project,
+      fields: ["3D Modeling"],
+      tags: ["AutoCad", "CNC Routing", "3D printing"],
       description: "The following was STEM competition for high schools: F1 in schools. The goal was to build the fasting C02 racecar following a set of requirements. I was the designer as well as the manufacturer for the team",
 
       exprList: [
@@ -330,5 +362,5 @@ export const cards: ExpCard_T[] = [
 
 ];
 
-export const workExperienceCards: ExpCard_T[] = cards.filter(card => card.tags.includes("Work Experience"));
-export const projectCards: ExpCard_T[] = cards.filter(card => card.tags.includes("Project"));
+export const workExperienceCards: ExpCard_T[] = cards.filter(card => card.experienceType == ExperienceType.WorkExperience);
+export const projectCards: ExpCard_T[] = cards.filter(card => card.experienceType == ExperienceType.Project);

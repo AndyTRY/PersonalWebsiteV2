@@ -1,8 +1,8 @@
 <script lang="ts">
 
-	import SkillsKeyboard from './SkillsBottom/SkillsKeyboard.svelte';
-	import SkillCategoryKeyboard from './SkillsBottom/SkillCategoryKeyboard.svelte';
-    import SkillStatsDisplay from './SkillsBottom/SkillStatsDisplay.svelte';
+	import SkillsKeyboard from './SkillsKeyboard.svelte';
+	import SkillCategoryKeyboard from './SkillCategoryKeyboard.svelte';
+    import SkillStatsDisplay from './SkillStatsDisplay/SkillStatsDisplay.svelte';
 
   </script>
 

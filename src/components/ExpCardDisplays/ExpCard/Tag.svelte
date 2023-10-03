@@ -23,5 +23,6 @@
 </style>
 
 <div class="tag" style="background-color: {categoryTagColorCodes[skillCategory[text]] || 'gray'}">
+  <img src="src/assets/otherIcons/warning.svg"  alt="warning">
   {text}
 </div>

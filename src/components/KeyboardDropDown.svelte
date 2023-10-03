@@ -1,8 +1,18 @@
 <script lang="ts">
-    import { isKeyboardVisible, isKeyboardEnabled } from "src/stores/store";
+    import { isKeyboardVisible, isKeyboardEnabled, sectionState, Section } from "src/stores/store";
     
-    import SkillsBottom from "./SkillsBottom.svelte";
+    import SkillsBottom from "./SkillsBottom/SkillsBottom.svelte";
+    import { derived } from 'svelte/store';
+    
 
+    const passCriteria = derived([isKeyboardEnabled,  isKeyboardVisible,  sectionState], 
+                               ([$isKeyboardEnabled, $isKeyboardVisible, $sectionState]) => {
+
+        const onExperienceSection: boolean = ["WRK", "PRO"].includes($sectionState);  
+        
+        console.log("OnEXP",  onExperienceSection)
+        return $isKeyboardEnabled && $isKeyboardVisible && onExperienceSection;
+    });
 
   </script>
   
@@ -22,6 +32,10 @@
     }
   </style>
   
-  <div class="{`bottom-nav ${$isKeyboardVisible && $isKeyboardEnabled  ? 'visible' : ''}`}">
+  <!-- <div class="{`bottom-nav ${passCriteria() ? 'visible' : ''}`}">
+    <SkillsBottom/>
+  </div> -->
+
+  <div class="{`bottom-nav ${$passCriteria? 'visible' : ''}`}">
     <SkillsBottom/>
   </div>

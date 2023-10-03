@@ -2,7 +2,7 @@ import { skillCategory } from "./SkillCategories";
 
 const skills = Object.keys(skillCategory).map((key) => key.toLowerCase());
 
-const keywordsToRemove: string[] = ["work experience", "projects"]
+const keywordsToRemove: string[] = []
 
 
 

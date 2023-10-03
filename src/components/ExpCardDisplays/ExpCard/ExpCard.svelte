@@ -4,9 +4,9 @@
 
     export let card: ExpCard_T;
 
-    import Tag from "./ExpCard/Tag.svelte"
-    import DotJotExprienceList from "./ExpCard/DotJotExprienceList.svelte";
-    import MediaCarousel from "./ExpCard/MediaCarousel.svelte";
+    import Tag from "./Tag.svelte"
+    import DotJotExprienceList from "./DotJotExprienceList.svelte";
+    import MediaCarousel from "./MediaCarousel.svelte";
 
     import 'src/styles/variables.scss';
 

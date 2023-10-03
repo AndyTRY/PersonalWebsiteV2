@@ -5,8 +5,8 @@
 
     export let skillMetricValues: skillMetricValues_T = {"Count": 0, "Level": 0}
 
-    import SkillMetric from "./SkillStatsDisplay/SkillMetric.svelte";
-    import SkillMetricInfo from "./SkillStatsDisplay/SkillMetricInfo.svelte";
+    import SkillMetric from "./SkillMetric.svelte";
+    import SkillMetricInfo from "./SkillMetricInfo.svelte";
 
     import { skillCounts } from "src/db/SkillCounts";
 

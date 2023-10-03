@@ -10,7 +10,7 @@
     });
 
     // Can potentially move to another file. Although only used here at the moment.
-    // DS: BoldedSplitArray: Every 2nd element in the array is a keyword. Flattening the array gives you the original string
+    // DataStruct - BoldedSplitArray: Every 2nd element in the array is a keyword. Flattening the array gives you the original string
     function getBoldedSplitArrays(str: string, keywords: string[]) {
       const boldedSplitArray = [];
       const splitStr = str.split(' ');

@@ -48,7 +48,7 @@
 
 	.settings-bar{
 		position: fixed;
-		left: 100px;
+		left: 90px;
 		bottom: 100px;
 	}
 

@@ -7,3 +7,14 @@
 2. Ideally I figure a way to do this in the markup {#each} portion. But Svelte dosen't seem to allow Typescript in markup so its hard type annotations here.
    I also need to change the indexing so that the seperate for each loops must continoue of the previous one
     
+
+
+
+
+
+Potential Improvments:
+1.
+Yes, in Svelte, even if you call set() on a store with the same value as it currently holds, it will still trigger an update.
+This is because Svelte uses strict equality (===) to check if a value has changed, and if the new value is the same as the old one, 
+it still considers it an update.
+If you want to avoid triggering an update when the value is the same, you can do a check before calling set()

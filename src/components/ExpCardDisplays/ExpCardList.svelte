@@ -3,7 +3,7 @@
     import type {Writable } from 'svelte/store';
     import { onMount } from 'svelte'; 
     import type { ExpCard_T } from 'src/interface/ExpCard';
-	import ExpCard from './ExpCardCarousel/ExpCard.svelte';
+	import ExpCard from './ExpCard/ExpCard.svelte';
 
     import {isKeyboardEnabled, isKeyboardVisible, BoundaryRelationship} from "src/stores/store"
     import {CARD_HEIGHT, INTER_CARD_GAP, SCROLL_OFFSET, SCROLL_DEBOUCE_TIME} from 'src/stores/consts'

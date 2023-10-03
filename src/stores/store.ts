@@ -45,8 +45,9 @@ export enum Section {
     Projects = "PRO",
     End = "BOT",
     Other = "OTH",
-
 }
+
+
 const lookupTable: { [key: string]: string }= {
     '0_0': 'TIL',
     '1_0': 'WRK',
@@ -54,12 +55,17 @@ const lookupTable: { [key: string]: string }= {
     '2_1': 'PRO',
     '2_2': 'END',
 };
+
 // Tracks state of current section
 export const sectionState = derived([boundaryRelationshipWorkExperienceSection,  boundaryRelationshipProjectsSection],
-                                     ([$boundaryRelationshipWorkExperienceSection, $boundaryRelationshipProjectsSection]) => {
+                                  ([$boundaryRelationshipWorkExperienceSection, $boundaryRelationshipProjectsSection]) => {
+
     const key = `${$boundaryRelationshipWorkExperienceSection}_${$boundaryRelationshipProjectsSection}`;
     return lookupTable[key] || "UNK"
 });
+
+
+
 
 
 

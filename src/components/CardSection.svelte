@@ -1,8 +1,8 @@
 <script lang="ts">
     import type {BoundaryRelationship } from "src/stores/store";
     import type { Writable } from 'svelte/store';
-    import ExpCardCarousel from "./ExpCardCarousel.svelte";
-    import ExpCardList from "./ExpCardList.svelte";
+    import ExpCardCarousel from "./ExpCardDisplays/ExpCardCarousel.svelte";
+    import ExpCardList from "./ExpCardDisplays/ExpCardList.svelte";
 
    
 
@@ -30,7 +30,7 @@
     {#if $experienceDisplayMode === DisplayMode.List}
       <ExpCardList {cards} {boundaryRelationship} />
     {:else if $experienceDisplayMode === DisplayMode.Carousel}
-      <ExpCardCarousel {cards} />
+      <ExpCardCarousel {cards} {boundaryRelationship} />
     {/if}
   </div>
 
