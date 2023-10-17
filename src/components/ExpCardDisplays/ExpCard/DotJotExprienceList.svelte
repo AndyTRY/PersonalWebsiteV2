@@ -5,9 +5,9 @@
 
     let boldedSplitExprList: string[][]
 
-    onMount(() => {
+    $:{
       boldedSplitExprList = exprList.map(expr => getBoldedSplitArrays(expr, keywords));
-    });
+    }
 
     // Can potentially move to another file. Although only used here at the moment.
     // DataStruct - BoldedSplitArray: Every 2nd element in the array is a keyword. Flattening the array gives you the original string

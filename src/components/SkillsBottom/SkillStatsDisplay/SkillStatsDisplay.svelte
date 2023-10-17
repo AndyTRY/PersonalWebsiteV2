@@ -3,7 +3,7 @@
 
     import { hoveredSkill } from 'src/stores/store';
 
-    export let skillMetricValues: skillMetricValues_T = {"Count": 0, "Level": 0}
+    export let skillMetricValues: skillMetricValues_T = {"Count": 0}
 
     import SkillMetric from "./SkillMetric.svelte";
     import SkillMetricInfo from "./SkillMetricInfo.svelte";
@@ -21,8 +21,8 @@
 </script>
   
   <div class="skill-stats-display">
-    <p class="skill-name">{capitalizeFirstLetter($hoveredSkill)}</p>
-    <hr>
+    <div class="skill-name">{capitalizeFirstLetter($hoveredSkill)}</div>
+    
 
     <div class="skill-metrics">
         {#each skillMetrics as skillMetric}
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="skill-metric">
-                    <SkillMetric skillMetric={skillMetric} skillMetricValue={skillMetricValues[skillMetric]}/>
+                    <SkillMetric skillMetric={skillMetric}/>
                 </div>
             </div>
         {/each}
@@ -44,20 +44,20 @@
     .skill-stats-display{
         display: flex;
         flex-direction: column;
-        max-width: 100%;
 
-        width: 200px;
+        width: 100%;
+        
+
         height: fit-content;
 
         font-size: xx-large;
         font-weight: 900;
 
-        border-style: solid;
-
         border-radius: 10px;
         border-color: var(--main-color);;
 
         background-color: var(--main-color);
+        overflow: hidden;
 
     }
 
@@ -70,21 +70,16 @@
         padding: 10px 0 18px 20px;
         margin: 0;
 
-        background-color: var(--main-color);;
-        
-    }
+        min-width: 10em; /* Set a minimum width as 100% */
+        max-width: 5em; /* Set a maximum width as 100% */
+        width: 100%; /* Set the width to always be 100% */
 
-    hr{
-        position: relative;
-        height: 1px;
-        width: 220px;
+        overflow: hidden;
+        white-space: nowrap; 
+        text-overflow: ellipsis; /* Truncate with ellipsis if needed */
 
-        margin: 0;
+        border-bottom: 2px solid black; /* Add this line */
         
-        top: -6px;
-        left: -12px;
-        background-color: black;
-        border-style: none;
     }
 
     .skill-metrics{
@@ -92,18 +87,13 @@
         display: flex;
         flex-direction: column;
         background-color: var(--main-color);
-
-        // border-color: white;
-        // border-style: solid;
-        // border-width: 5px;
-
-
     }
 
     %transition-property {
         transition: opacity 0.3s ease;
     
     }
+    
 
     .skill-metric{
         @extend %transition-property;

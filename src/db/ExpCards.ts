@@ -10,7 +10,7 @@ export const cards: ExpCard_T[] = [
       title: "Fullstack Developer",
       experienceType: ExperienceType.WorkExperience,
       fields: ["Web", "Microservices"],
-      tags: ["Python", "Flask",  "Vue", "Docker","SQL"],
+      tags: ["Python", "Flask", "Vue", "S3", "Docker", "SQL"],
       description: "The following was a Fullstack developer role at Dash Hudson. I worked in a team responsible for maintaining and building up a set of microservices",
 
       exprList: [
@@ -34,8 +34,8 @@ export const cards: ExpCard_T[] = [
     {
       title: "Application Developer",
       experienceType: ExperienceType.WorkExperience,
-      fields: ["Scripting", "Web"],
-      tags: ["Scripting", "Perl", "Python", "Terminal", "SQL"],
+      fields: ["Scripting"],
+      tags: ["Unix", "Perl", "Python", "Terminal", "SQL", "CronJob"],
       description: "The following was an Application Development role at CHASS @ UofT. I worked in a team of 2 mainly responsible for maintaining a set of data analytics and provisioning services",
 
       exprList: [
@@ -98,6 +98,23 @@ export const cards: ExpCard_T[] = [
     },
 
     {
+      title: "Media Tracker",
+      experienceType: ExperienceType.Project,
+      fields: ["Web"],
+      tags: [".NET", "SQL", "GraphQL", "Redis", "Oauth2"],
+      description: "A personal team project of 2. The idea is to show analytics based on usage for soical media users",
+
+      exprList: [
+        "Implemented 3rd party sign-in and resource authorization following Oauth2",
+        "Implemented token-based authentication using JWT",
+        "Implemented fetching of authorized YouTube resources"
+      ],
+
+      mediaSources:  [],
+
+    },
+
+    {
       title: "Microservice demo",
       experienceType: ExperienceType.Project,
       fields: ["Web", "Microservices"],
@@ -131,25 +148,79 @@ export const cards: ExpCard_T[] = [
     },
 
     {
-      title: "Parallel Processing Image Filters",
+      title: "Image Filters",
       experienceType: ExperienceType.Project,
-      fields: ["Parallel Processing", "Image Processing"],
-      tags: ["C", "Cuda"],
-      description: "Serveral projects form an parallel computing course at UofT: CSC367. Projects invovled implementing methods of optimizing image processing with parallelism techniques",
+      fields: ["Parallel Processing", "Images"],
+      tags: ["C", "CUDA", "PThreads", "OMP", "SciNet"],
+      description: 
+      `Project(s) from an parallel computing course at UofT: CSC367. 
+      The projects invovled building a edge-detection filter for images. 
+      The main idea was to investigate and compare the performance between different parallelism approaches`
+      ,
 
       exprList: [
         "Implemented laplacian filters for images using parallel strategies: sharded row, work queue, etc",
         "Implemented laplacian filter kernels for images with CUDA using parallel strategies on GPU",
       ],
 
-      mediaSources:  [],
+      mediaSources:  [         
+        {
+          type: MediaType.Image,
+          caption: "Original Image",
+          imageUrl: "src/assets/images/landscape.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Image after filter (1)",
+          imageUrl: "src/assets/images/landscape2.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Image after filter (2)",
+          imageUrl: "src/assets/images/landscape3.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Some performance metrics (CPU)",
+          imageUrl: "src/assets/images/image-filter-graph1.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Some performance metrics (GPU)",
+          imageUrl: "src/assets/images/image-filter-gpu-table.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Original Image",
+          imageUrl: "src/assets/images/flower.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Image after filter (1)",
+          imageUrl: "src/assets/images/flower2.png"
+        } as Image,
+
+        {
+          type: MediaType.Image,
+          caption: "Image after filter (2)",
+          imageUrl: "src/assets/images/flower3.png"
+        } as Image,
+
+
+      ],
 
     },
 
     {
       title: "MiniC Compiler",
       experienceType: ExperienceType.Project,
-      fields: ["Complier"],
+      fields: ["Compiler"],
       tags: ["C++", "LLVM", "Antlr"],
       description: "A projects form a compilers course at UofT: CSC488. The project invloved building a compiler for the langauge MiniC (a subset of C).",
 
@@ -199,7 +270,21 @@ export const cards: ExpCard_T[] = [
         "Implemented back-propagation algorithm in NeuralNet for digit classification in C",
       ],
 
-      mediaSources:  [],
+      mediaSources:  [
+        {
+          type: MediaType.Video,
+          caption: "Trained AI in simulated road game with minimal obstancles",
+          videoUrl: "src/assets/videos/QlearningLowObstacles.mp4",
+          mimeType: "mp4"
+        } as Video,
+        {
+          type: MediaType.Video,
+          caption: "Trained AI in simulated road game with many obstancles",
+          videoUrl: "src/assets/videos/QlearningHighObstacles.mp4",
+          mimeType: "mp4"
+        } as Video,
+      ],
+
 
     },
 
@@ -207,30 +292,19 @@ export const cards: ExpCard_T[] = [
       title: "Game Project",
       experienceType: ExperienceType.Project,
       fields: [],
-      tags: ["Assembly"],
+      tags: ["Assembly", "MARS"],
       description: "A final project for a computer organization course at UofT: CSCB58",
 
       exprList: [
         "Implemented an obstacle collision game in Assembly",
+        "Optimized repainting to only updated objects"
       ],
 
       mediaSources:  [
         {
           type: MediaType.Video,
-          caption: "Trained AI in simulated road game with minimal obstancles",
-          videoUrl: "src/assets/videos/sample2.mp4",
-          mimeType: "mp4"
-        } as Video,
-        {
-          type: MediaType.Video,
-          caption: "Original Image",
-          videoUrl: "src/assets/videos/sample2.mp4",
-          mimeType: "mp4"
-        } as Video,
-        {
-          type: MediaType.Video,
-          caption: "Original Image",
-          videoUrl: "src/assets/videos/sample2.mp4",
+          caption: "Small showcase. Rendered with MARS MIPS simulator",
+          videoUrl: "src/assets/videos/AssemblyGame.mp4",
           mimeType: "mp4"
         } as Video,
       ],
@@ -242,7 +316,12 @@ export const cards: ExpCard_T[] = [
       experienceType: ExperienceType.Project,
       fields: ["Parallel Processing", "AI"],
       tags: ["C", "Unix"],
-      description: "Several projects from a software course at UofT: CSCC09. It involved using low level tool software tools to implement Ml algorithms",
+      description: 
+      `Several projects from a software course at UofT: CSCC09.
+      The projects invovled building a digit classifier in C.
+      The main focus was the use of software tools & Unix system calls: fork, pipe, etc.
+      `
+      ,
 
       exprList: [
         "Digit classification with k-NN model using multiple child processes and pipes for computation",
@@ -256,9 +335,9 @@ export const cards: ExpCard_T[] = [
     {
       title: "Image Inpainting",
       experienceType: ExperienceType.Project,
-      fields: ["Image Processing", "AI"],
+      fields: ["Images", "AI"],
       tags: ["Python", "Numpy", "Jupyter"],
-      description: "A projects from a machine learning course at UofT: CSCC11. It involved using techniques regression to perform image inpainting.",
+      description: "A projects from a machine learning course at UofT: CSCC11. It involved using techniques such as regression to perform image inpainting.",
 
       exprList: [
         "Implemented image inpainting using RBF Regression to restore images courrupted with colored text",
@@ -268,19 +347,19 @@ export const cards: ExpCard_T[] = [
         {
           type: MediaType.Image,
           caption: "Original Image",
-          imageUrl: "src/assets/Inpainting-original.png"
+          imageUrl: "src/assets/images/Inpainting-original.png"
         } as Image,
 
         {
           type: MediaType.Image,
           caption: "Corrupted Image",
-          imageUrl: "src/assets/Inpainting-corrupted.png"
+          imageUrl: "src/assets/images/Inpainting-corrupted.png"
         } as Image,
 
         {
           type: MediaType.Image,
           caption: "Restored image",
-          imageUrl: "src/assets/Inpainting-restored.png"
+          imageUrl: "src/assets/images/Inpainting-restored.png"
         } as Image,
 
       ],
@@ -289,11 +368,11 @@ export const cards: ExpCard_T[] = [
 
 
     {
-      title: "Product Search Aggregator",
+      title: "Product Aggregator",
       experienceType: ExperienceType.Project,
       fields: ["Web", "Scripting"],
       tags: ["Python", "NodeJs"],
-      description: "A personal project. The purpose is a search aggregation platform where searching for a product would return resutls form sites like Amazon, Best Buy, etc in 1 place.",
+      description: "A personal project. The purpose is a search aggregation platform where searching for a product would return resutls form sites like Amazon, Best Buy, etc all aggregated in one place",
 
       exprList: [
         "Wrote Python scripts that scraped data from select websites with Selenium and Bs4",
@@ -309,12 +388,13 @@ export const cards: ExpCard_T[] = [
       title: "Personal Website",
       experienceType: ExperienceType.Project,
       fields: ["Web"],
-      tags: ["Svelte", "Typescript", "AWS"],
-      description: "Should I be listing the building of my personal website that your currently on as an experience? I decided why not.",
+      tags: ["Svelte", "Typescript", "S3", "Figma"],
+      description: "Check out this website and some of the features! It was bulit using the Svelte framework",
 
       exprList: [
         "Designed some custom svg icons using Figma",
         "Implemented website design and interactoins with Svelte",
+        "Static website hosted on S3 Bucket"
       ],
 
       mediaSources:  [],
@@ -326,7 +406,7 @@ export const cards: ExpCard_T[] = [
       title: "F1 in schools",
       experienceType: ExperienceType.Project,
       fields: ["3D Modeling"],
-      tags: ["AutoCad", "CNC Routing", "3D printing"],
+      tags: ["AutoCad", "CNC Routing", "3D Printing"],
       description: "The following was STEM competition for high schools: F1 in schools. The goal was to build the fasting C02 racecar following a set of requirements. I was the designer as well as the manufacturer for the team",
 
       exprList: [

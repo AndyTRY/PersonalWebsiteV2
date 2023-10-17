@@ -3,6 +3,7 @@
     import type { Image, Video, SketchFabModel, Media } from "src/interface/MediaTypes";
     import { MediaType } from "src/interface/MediaTypes";
     import 'src/styles/variables.scss'
+	import {isFoucsedImage, focusImageUrl} from 'src/stores/store'
     export let mediaSources:Media[] = []
 
 
@@ -15,14 +16,11 @@
 
     let captionDisplayer: Element;
 
-    onMount(() => {
-        images =          mediaSources.filter(mediaSource => mediaSource.type === MediaType.Image) as Image[];
+    $: {
+        images = mediaSources.filter(mediaSource => mediaSource.type === MediaType.Image) as Image[];
         sketchFabModels = mediaSources.filter(mediaSource => mediaSource.type === MediaType.SketchFabModel) as SketchFabModel[];
-        videos =          mediaSources.filter(mediaSource => mediaSource.type === MediaType.Video) as Video[];
-
-        captionDisplayer.innerHTML = mediaSources.length > 0 && mediaSources[0].caption ? mediaSources[0].caption : "";
-
-    });
+        videos = mediaSources.filter(mediaSource => mediaSource.type === MediaType.Video) as Video[];
+    }
 
 
     let curImageIndex = 0;
@@ -40,13 +38,11 @@
     function viewNextImg() {
         curImageIndex += 1;
         ZIndexTransitionSpeed = 1;
-        captionDisplayer.innerHTML = mediaSources[curImageIndex]?.caption ?? "";
     }
 
     function viewPrevImg() {
         curImageIndex -= 1;
         ZIndexTransitionSpeed = 0;
-        captionDisplayer.innerHTML = mediaSources[curImageIndex]?.caption ?? "";
     }
 
 
@@ -78,6 +74,11 @@
         return index + images.length + sketchFabModels.length
     }
 
+    function toggleExpansion(imageUrl:string) {
+        isFoucsedImage.set(!$isFoucsedImage)
+        focusImageUrl.set(imageUrl)
+    }
+
   </script>
   
   <div class="container"
@@ -85,7 +86,7 @@
   >
 
     {#each images as image, index}
-            <img class="image" src="{image.imageUrl}" alt=""
+            <img class="image" src="{image.imageUrl}" alt="" on:click="{toggleExpansion(image.imageUrl)}"
                  style="transform: translate3d({-((index - curImageIndex) * depthOffset)}px, 
                                             {(index - curImageIndex) * depthOffset}px, 
                                             {(index - curImageIndex) * depthOffset}px);
@@ -136,7 +137,9 @@
     <button class="btn btn-left"  on:click={viewPrevImg} style="display: {curImageIndex === 0                      ? 'none' : 'block'};"></button>
     <button class="btn btn-right" on:click={viewNextImg} style="display: {curImageIndex >= mediaSources.length - 1 ? 'none' : 'block'};"></button>
 
-    <div class="media-caption" bind:this={captionDisplayer}></div>
+    <div class="media-caption" bind:this={captionDisplayer}>
+        {mediaSources[curImageIndex]?.caption ?? ""}
+    </div>
 
   </div>
   
@@ -228,7 +231,7 @@
       left: 45px;
     }
   
-    img {
+    .image {
         @extend %mediaStyle
     }
 

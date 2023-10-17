@@ -2,38 +2,43 @@
     export let name:string;
 
     const sectionNames  = ["Work Experience", "Projects"]
+
+    function scrollToSection(sectionName:string) {
+        const section = document.getElementById(sectionName);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
   </script>
   
   <div class="site-heading">
     <div class="title">{name}</div>
     <div class="sections">
       {#each sectionNames as sectionName}
-        <a href="#{sectionName}" class="section-name">{sectionName}</a>
+          <a href="javascript:void(0);" class="section-name" on:click={() => scrollToSection(sectionName)}>{sectionName}</a>
       {/each}
     </div>
   </div>
 
-<!-- 
-<div class="underline"></div> -->
 
   <style lang="scss">
 
     .site-heading{
+      margin-top: 3em;
+      margin-bottom: 5em;
+
       display: flex;
       flex-direction: row;
+      gap: 5em;
       color: white;
-      width: 70%;
-      margin-bottom: 5em;
+      width: 100%;
     }
 
     .title {
       font-size: 5em;
       font-weight: bold;
       color: white;
-
-      margin-top: 0.4em;
-      margin-right: 1em;
-      /* Add any other styles you want for the title heading */
 
       
     }
@@ -54,17 +59,30 @@
       }
     }
 
-    
+    @media (max-width: 1060px) {
+        /* Apply styles for screens smaller than 768px wide (phones) */
+        .site-heading {
+            flex-direction: column; /* Stack items on top of each other */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center text */
+        }
 
-    .underline {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        width: 70%;
-        height: 2px;
-        background-color: white; /* Change this to adjust the color of the underline */
-        
-        margin-top: 1em;
-        margin-bottom: 4em;
+        .title {
+            font-size: 3em; /* Adjusted font size */
+        }
+
+        .sections {
+            flex-direction: column; /* Stack items on top of each other */
+            align-items: center;
+            gap: 1em; /* Reduced gap between section names */
+        }
+
+        .section-name {
+            font-size: large; /* Adjusted font size */
+        }
     }
+
+
+
+  
   </style>

@@ -1,9 +1,8 @@
 <script lang="ts">
     export let skillMetric = "Count";
-
-    import HoverShow from "src/components/utils/HoverShow.svelte";
-
     import { skillMetricHelpInfo } from "src/db/SkillMetricHelpInfo";
+
+
 
 </script>
   
@@ -28,7 +27,7 @@
         flex-direction: column;
         padding: 10px;
         border-radius: 10px;
-        background-color: white;
+        background-color: var(--main-color);
         border-style: solid;
 
         font-size: 32px;

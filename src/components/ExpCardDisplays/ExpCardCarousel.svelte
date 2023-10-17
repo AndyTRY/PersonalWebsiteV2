@@ -2,15 +2,51 @@
   import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import '@splidejs/splide/dist/css/themes/splide-default.min.css';
   import { onMount } from 'svelte'; 
-  import type {Writable } from 'svelte/store';
+  import {derived, type Writable} from 'svelte/store';
 
   import type { ExpCard_T } from 'src/interface/ExpCard';
 	import ExpCard from './ExpCard/ExpCard.svelte';
-  import {isKeyboardEnabled, isKeyboardVisible, BoundaryRelationship} from "src/stores/store"
+  import {isKeyboardEnabled,
+         isKeyboardVisible, 
+         BoundaryRelationship,
+         filterMode,
+         searchFilterSkills,
+         SkillFilterFlagList,
+
+		     FilterMode,
+
+			 screenMode,
+
+			 ScreenMode
+
+
+  } from "src/stores/store"
+  
+  export let cards: ExpCard_T[];
   import {CARD_HEIGHT, INTER_CARD_GAP, SCROLL_OFFSET, SCROLL_DEBOUCE_TIME} from 'src/stores/consts'
 
-  export let cards:ExpCard_T[] = [];
+
+  let filteredCards =  derived([filterMode, SkillFilterFlagList],([$filterMode, $SkillFilterFlagList]) => {
+    if ($filterMode == FilterMode.All) return cards
+    else {
+      const filtered = cards.filter(card => {
+        return card.fields.some(field => $SkillFilterFlagList.includes(field)) ||
+               card.tags.some(tag => $SkillFilterFlagList.includes(tag));
+        });
+      return filtered
+    }
+      
+});
+
+
+
+
+  
+
+  
   export let boundaryRelationship: Writable<BoundaryRelationship>
+
+    
 
 
     let expCarousel: Element;
@@ -60,7 +96,8 @@
             clearTimeout(scrollTimeoutTask);
             scrollTimeoutTask = setTimeout(() => {
                 isKeyboardVisible.set(true)
-                if ($boundaryRelationship == BoundaryRelationship.InBounds) SnapPosition()
+                // if ($boundaryRelationship == BoundaryRelationship.InBounds && $screenMode == ScreenMode.Normal) 
+                //     SnapPosition()
 
             }, SCROLL_DEBOUCE_TIME); 
     }
@@ -77,16 +114,22 @@
 
 
 
-  <div  class="exp-carousel" bind:this={expCarousel}>
-    <Splide options={{ gap: '5em'}}>
 
-      {#each cards as card}
-        <SplideSlide>
-          <ExpCard {card}/>
-        </SplideSlide>
-      {/each}
+  <div class="exp-carousel" bind:this={expCarousel}>
+    {#if $filteredCards.length === 0}
+      <div class="placeholder-card">No Matching Experience</div>
+    {:else}
 
-    </Splide>
+      <Splide options={{ gap: '5em'}}>
+        {#each $filteredCards as card}
+          <SplideSlide>
+            <ExpCard {card}/>
+          </SplideSlide>
+        {/each}
+      </Splide>
+    {/if}
+
+
   </div>
 
   <style>
@@ -94,5 +137,20 @@
     .exp-carousel{
       width: 100%;
     }
+
+    .placeholder-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 25em;
+      max-height: 8em;
+      background-color: black;
+      text-align: center;
+
+      color: white;
+      font-size: 3em;
+    }
+
   </style>
 

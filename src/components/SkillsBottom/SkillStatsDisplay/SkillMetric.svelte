@@ -1,30 +1,25 @@
 <script lang="ts">
 
+	import {hoveredSkillCount } from "src/stores/store";
     export let skillMetric = "Count";
-    export let skillMetricValue = 0;
-</script>
 
+</script>
 
     <div class="skill-metric skill-{skillMetric.toLowerCase()}">
         <img src="src/assets/otherIcons/skill{skillMetric}.svg"  alt={skillMetric}>
-        <div class="skill-metric-value">{skillMetricValue}</div>
+        <div class="skill-metric-value">{$hoveredSkillCount}</div>
     </div>
-
-
-
   
-  <style lang="scss">
+<style lang="scss">
 
 
     %box {
         display: flex;
         flex-direction: row; 
+        
         padding: 10px 10px 10px 20px;
 
-
-        width: 165px;
         height: 50px
-
         
     }
 
@@ -34,8 +29,8 @@
     }
 
     .skill-metric-value{
+        flex: 1;
         text-align: center;
-        width: 160px;
     }
 
     img {

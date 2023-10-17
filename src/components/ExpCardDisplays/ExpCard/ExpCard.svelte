@@ -9,25 +9,31 @@
     import MediaCarousel from "./MediaCarousel.svelte";
 
     import 'src/styles/variables.scss';
+    import {skillFilterFlag} from 'src/stores/store'
+  	import { derived, writable, type Writable } from "svelte/store";
+	import { onMount } from "svelte";
+
+    let fieldTags: Writable<{tag: string, isFiltered: number}[]> = writable();
+    let skillTags: Writable<{tag: string, isFiltered: number}[]>  = writable();
+
+    $: {
+        fieldTags.set(card.fields.map(tag => ({ tag, isFiltered: ((!(tag in $skillFilterFlag)) ? false : $skillFilterFlag[tag]) ? 1 : 0 }))
+                        .sort((a, b) => b.isFiltered - a.isFiltered))
+        skillTags.set(card.tags.map(tag => ({ tag, isFiltered: ((!(tag in $skillFilterFlag)) ? false : $skillFilterFlag[tag]) ? 1 : 0 }))
+                        .sort((a, b) => b.isFiltered - a.isFiltered))
+    }
 
 </script>
   
-  <style>
+  <style lang="scss">
     .card {
-      scroll-padding: 0 0 0 0;
-
-
-
-
       display: flex;
-      border: 1px solid black;
       border-radius: 10px;
       padding: 0 0 16px 50px;
 
-      width: 1200px; /* Set the width to your desired value */
       max-width: 100%; /* Control the maximum width of the card */
       box-sizing: border-box; /* Include padding and border in the width calculation */
-      height: 25em;
+      min-height: 25em;
 
       /* background: linear-gradient(to bottom right, silver, white, white, white);*/
       background-color: var(--main-color);
@@ -76,11 +82,18 @@
       color: black;
     }
   
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
+    .tag-container{
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 5px;
+      }
+
+      .skill-tags{
+        margin-bottom: 20px;
+      }
     }
+
   
     .description {
       margin-bottom: 16px;
@@ -105,14 +118,42 @@
     .description{
       width: 90%;
     }
+
+    @media (max-width: 1060px) {
+        /* Apply styles for screens smaller than 768px wide (phones) */
+        .card {
+            flex-direction: column; /* Change to column layout for mobile */
+            height: auto; /* Adjust height for variable content */
+        }
+
+        .title {
+            font-size: 30px; /* Adjusted font size for mobile */
+        }
+
+        .image {
+            width: 100%; /* Make the image fill the width */
+            max-height: 300px; /* Set a maximum height */
+            object-fit: cover;
+        }
+    }
+
+
   </style>
   
   <div class="card">
     <div class="left-content">
-      <div class="tags">
-        {#each card.tags as tag}
-          <Tag text={tag}/>
-        {/each}
+      <div class="tag-container">
+        <div class="tags field-tags">
+          {#each $fieldTags as {tag, isFiltered}}
+            <Tag {tag} {isFiltered} type="field"/>
+          {/each}
+        </div>
+        <div class="tags skill-tags">
+          {#each $skillTags as {tag, isFiltered}}
+            <Tag {tag} {isFiltered} type="skill"/>
+          {/each}
+        </div>
+
       </div>
 
       <div class="title">{card.title}</div>

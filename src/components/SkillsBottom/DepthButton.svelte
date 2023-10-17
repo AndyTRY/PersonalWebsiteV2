@@ -1,37 +1,32 @@
 
 <script lang="ts">
     export let skillName = ""
-    import { hoveredSkill } from 'src/stores/store';
+    export let isOn = false;
+    import { SetNextDisplayMode, hoveredSkill } from 'src/stores/store';
     import 'src/styles/variables.scss'
-
+    import { mappedName } from 'src/stores/utils';
+	import { onMount } from 'svelte';
     let isButtonClicked = false;
 
 
 
     function handleButtonClick() {
-      isButtonClicked = !isButtonClicked;
+      isOn = !isOn;
     }
 
     function handleButtonHover() {
       hoveredSkill.set(skillName);
     }
 
-    function mappedName(skillName: string){
-      if (skillName === "3D Modeling") return "threedmodeling"
-      if (skillName === "C++")         return "cplusplus"
-
-      return skillName.replace(' ', '').toLowerCase()
-    }
-
 </script>
 
 <div class="wrapper">
 
-  <div class="led {isButtonClicked ? 'clicked' : ''}">•</div>
+  <div class="led {isOn ? 'clicked' : ''}">•</div>
 
     <button class="button-3d 
       {mappedName(skillName)}  
-      {isButtonClicked ? 'clicked' : ''}" 
+      {isOn ? 'clicked' : ''}" 
     on:click={handleButtonClick}    
     on:mouseenter={handleButtonHover} 
   >
@@ -51,8 +46,8 @@
   <style lang="scss">
 
     // NEEDS Improvement - 1
-    $skills: 'python', 'nodejs', 'java', 'vue', 'kafka', 'c', 'git', 'bash', 'svelte', 'docker', 'typescript', 'web', 'postgresql', 'llvm', 'assembly', 'antlr', 'cplusplus', 'flask', 'matlab', 'mongodb', 'autocad';
-    $skillCategories: 'ai' , 'web', 'compiler', 'parallelprocessing', 'os' , 'threedmodeling';
+    $skills: 'python', 'redis', 'graphql', 'dotnet', 'figma', 'stata', 's3', 'sql', 'unix', 'nodejs', 'java', 'vue', 'kafka', 'c', 'git', 'bash', 'svelte', 'docker', 'typescript', 'postgresql', 'llvm', 'assembly', 'antlr', 'cplusplus', 'flask', 'matlab', 'mongodb', 'autocad', 'react', 'perl', 'neo4j', 'numpy', 'jupyter';
+    $skillCategories: 'scripting', 'ai' , 'web', 'compiler', 'parallelprocessing', 'os' , 'threedmodeling', 'images', 'microservices';
     
     :root {
       --button-size: 82px
@@ -70,7 +65,7 @@
     
     @each $category in $skillCategories{
       .#{$category} {
-        background-image: url('src/assets/skillCategoryIcons/#{$category}.svg');
+        background-image: url('src/assets/fieldIcons/#{$category}.svg');
       }
     }
     
@@ -81,7 +76,6 @@
     }
 
     .button-3d {  
-      margin: 3px;
       height: var(--button-size);
       width: var(--button-size);
 
@@ -98,9 +92,7 @@
       font-size: 50px;
       cursor: pointer;
       
-      /* transform: perspective(200px) rotateX(45deg); */
       transition: transform 0.3s ease;
-      transition: invert 0.3 ease;
       transform: scale(0.80) translate(-20%, -20%);
       
       border-style: solid;
@@ -119,9 +111,9 @@
       &::after {
         @extend %test;
         right: -9px;
-        height: 105%;
+        height: 100%;
         width: 7px;
-        bottom: -6px;
+        bottom: -4px;
         transform: skewY(45deg);
         background-color: white
       }
@@ -135,9 +127,10 @@
         }
         
         &::after {
-          right: -5px;
+          height: 100%;
+          right: -7px;
           width: 5px;
-          bottom: -3px;
+          bottom: -2px;
         }	
       }
       
@@ -166,7 +159,7 @@
         visibility: hidden;
         z-index: 1;
         left:25px;
-        
+
 
         &.clicked{
           color: white;

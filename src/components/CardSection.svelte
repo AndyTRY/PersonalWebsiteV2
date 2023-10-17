@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {BoundaryRelationship } from "src/stores/store";
+    import type {BoundaryRelationship, Section } from "src/stores/store";
     import type { Writable } from 'svelte/store';
     import ExpCardCarousel from "./ExpCardDisplays/ExpCardCarousel.svelte";
     import ExpCardList from "./ExpCardDisplays/ExpCardList.svelte";
@@ -8,13 +8,16 @@
 
     import {experienceDisplayMode, DisplayMode} from "src/stores/store"
 
-    import type { ExpCard_T } from 'src/interface/ExpCard';
+    import { ExperienceType, type ExpCard_T } from 'src/interface/ExpCard';
 
-    export let sectionTitle = "";
+    export let experienceType: ExperienceType;
     export let cards:ExpCard_T[] = [];
     export let boundaryRelationship: Writable<BoundaryRelationship>;
 
-
+    function experienceTypeName(experienceType: ExperienceType){
+      if (experienceType == ExperienceType.WorkExperience) return "Work Experience"
+      if (experienceType == ExperienceType.Project) return "Projects"
+    }
 
   </script>
   
@@ -22,8 +25,8 @@
 
 
 
-  <div id={sectionTitle} class="section">
-    <div class="section-heading">{sectionTitle}</div>
+  <div id={experienceTypeName(experienceType)} class="section">
+    <div class="section-heading">{experienceTypeName(experienceType)}</div>
     <div class="underline"></div>
 
 
@@ -59,10 +62,24 @@
         left: 0;
         width: 70%;
         height: 2px;
-        background-color: white; /* Change this to adjust the color of the underline */
+        background-color: black; /* Change this to adjust the color of the underline */
         
         margin-top: 1em;
         margin-bottom: 4em;
+    }
+
+    
+
+    @media (max-width: 1060px) {
+        /* Apply styles for screens smaller than 768px wide (phones) */
+        .section-heading {
+            font-size: 1.5em; /* Adjusted font size for phones */
+            text-align: center;
+        }
+
+        .underline {
+            width: 100%; /* Adjusted width for phones */
+        }
     }
 
 

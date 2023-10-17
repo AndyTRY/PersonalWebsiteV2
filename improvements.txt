@@ -18,3 +18,8 @@ Yes, in Svelte, even if you call set() on a store with the same value as it curr
 This is because Svelte uses strict equality (===) to check if a value has changed, and if the new value is the same as the old one, 
 it still considers it an update.
 If you want to avoid triggering an update when the value is the same, you can do a check before calling set()
+
+
+
+Bugs:
+If I change Tag.svelte export variable: "tag" to "text", my stuff renders with an additional comma

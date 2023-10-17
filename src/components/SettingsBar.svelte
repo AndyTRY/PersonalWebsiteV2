@@ -5,22 +5,19 @@
         sectionState,
         boundaryRelationshipWorkExperienceSection,
         boundaryRelationshipProjectsSection,
-
+        SectionFullName,
         SetNextDisplayMode,
 
         DisplayMode,
+		filterMode,
+		FilterMode,
 
     } from "src/stores/store";
 
     import { derived } from 'svelte/store';
+	import ColorSetting from "./ColorSetting.svelte";
 
-    const SectionFullName: { [key: string]: string }= {
-        'TIL' : "Title",
-        'WRK' : "Work",
-        'OTH' : "Other", 
-        'PRO' : "Projects",
-        'END' : "End",
-    };
+
 
     const DisplayModeFullName :{ [key: number]: string } = {
         [DisplayMode.List] : "List",
@@ -47,14 +44,28 @@
 
 <div class="settings">
 
+
+
     <!-- Current Section Status --> 
-    <div class="widget">
+    <div class="widget widget-display1">
         <div class="hidden">Section</div>
-        <div class="section-status">
+        <div class="status">
             {$sectionState}
         </div>
         <div class="hidden">{$sectionStateFullName}</div>
     </div>
+
+    <!-- Experience Mode: [All, Filtered] --> 
+    <div class="widget widget-display2">
+        <div class="hidden">Experiences</div>
+        <div class="status">
+            {$filterMode == FilterMode.All ? "ALL" : "FIL"}
+        </div>
+        <div class="hidden">{$filterMode == FilterMode.All ? "All" : "Filtered"}</div>
+    </div>
+
+    <!-- Current Site Color --> 
+    <ColorSetting/>
 
     <!-- DisplayView Setting -->
     <div class="widget"> 
@@ -74,17 +85,16 @@
         <div class="hidden">Settings</div>
         <button class='keyboard-toggle setting-icon'
                 class:rotate="{$isKeyboardEnabled}"
-                class:warning-color="{$sectionState !== 'WRK' && $sectionState !== 'PRO' && $isKeyboardEnabled}"
                 on:click="{() => isKeyboardEnabled.set(!$isKeyboardEnabled)}">
         </button>
-
+        <!-- class:warning-color="{$sectionState === 'TIL' && $isKeyboardEnabled}" -->
         
-        {#if $sectionState !== 'WRK' && $sectionState !== 'PRO' && $isKeyboardEnabled}
-            <div class="hidden hidden-warning">
-                <img src="src/assets/otherIcons/warning.svg"  alt="warning">
-                <div class="warning-text">The following is only enabled for sections: "Work", "Projects"</div>
-            </div>
-        {/if}
+
+        <!-- <div class="hidden-warning {($sectionState !== 'TIL' || !$isKeyboardEnabled) ? 'hiddener' : "hidden"}"> -->
+        <div class="hidden-warning hiddener">
+            <img src="src/assets/otherIcons/warning.svg"  alt="warning">
+            <div class="warning-text">The following is not enabled for sections: "TIL"</div>
+        </div>
     </div>
 
 
@@ -94,22 +104,21 @@
 <style lang="scss">
 
     .hidden-warning{
-        width: 200px;
-        position: absolute;
         display: flex;
         flex-direction: row;
-
-        bottom: -62px;
-        left: -62px;
 
         visibility: hidden;
 
         .warning-text{
             font-size: small;
-            width: 150px;
+            width: 10em;
             height: fit-content;
         }
     }
+
+
+
+
 
     .settings{
         display: flex;
@@ -117,7 +126,7 @@
         align-items: center;
     }
 
-    .section-status{
+    .status{
         color: white;
         font-weight: bolder;
         font-family: 'system-ui';
@@ -129,8 +138,8 @@
         background-color: transparent;
         border: none; /* Add this line to remove the button border */
 
-        width: 35px;
-        height: 35px;
+        width: 2em;
+        height: 2em;
 
         background-position: center;
         background-size: contain; /* Use contain to preserve aspect ratio */
@@ -185,6 +194,10 @@
 
     
 
+        .hiddener   {
+            visibility: hidden;
+        }
+
         .hidden{
             visibility: hidden;
             font-size: 15px;
@@ -199,6 +212,10 @@
         &:hover .setting-icon{
             transform: scale(1.15);
         }
+    }
+
+    .widget-display2{
+        margin-bottom: 1em;
     }
 
     .display-mode-name{

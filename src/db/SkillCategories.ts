@@ -1,12 +1,10 @@
 
 export const categorySkills : Record<string, string[]> = {
-    "Languages": ["Python", "C", "Java", "Javascript", "Matlab", "LLVM", "STATA", "Cplusplus", "Assembly"],
-    "Web Frameworks": ["Flask", "NodeJs", "Svelte", "Vue"],
-    "Fields": ["Web", "Scripting", "OS", "Complier", "Image Processing", "Parallel Computing", "Networking", "3D Modeling"],
-    "Tools": ["Docker", "Git", "VsCode", "Terminal"],
-    "Scripting": ["Python (S)", "Perl", "Bash"],
-    "3rd Party Apps" : ["Github"],
-    "Topics" : ["Microservices", "Kafka", "SQL", "Postgresql"]
+    "Languages": ["Python", "Java", "Typescript", "C", "C++", "Matlab", "Assembly"],
+    "Frameworks": ["Svelte", "Vue", "React", ".NET", "Flask", "NodeJs"],
+    "Topics": ["Web", "Scripting", "AI", "OS", "Compiler", "Images", "Parallel Processing"],
+    "Data Storage": ["SQL", "MongoDB", "Neo4j", "S3"],
+    "Additional" : ["Microservices", "Kafka", "Docker", "Unix", "Git"]
 }
     
 function createInvertedCategorySkills(categorySkills: Record<string, string[]>): Record<string, string> {
@@ -17,6 +15,7 @@ function createInvertedCategorySkills(categorySkills: Record<string, string[]>):
       }
     }
     return invertedMap;
-  }
-  
+}
+
+export const categories = Object.keys(categorySkills);
 export const skillCategory = createInvertedCategorySkills(categorySkills);

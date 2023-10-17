@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let skillMetric = "Count";
+    export let skillMetric = "";
 
     import HoverShow from "src/components/utils/HoverShow.svelte";
     import SkillMetricInfoHelp from "./SkillMetricInfoHelp.svelte";

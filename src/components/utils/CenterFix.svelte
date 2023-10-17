@@ -1,8 +1,9 @@
-<script>
-    export let visible;
+<script lang="ts">
+    export let visible:Boolean;
+    import {isFoucsedImage}  from 'src/stores/store';
   </script>
   
-  <div class="modal-overlay" class:visible>
+  <div class="modal-overlay" on:click={() => isFoucsedImage.set(!$isFoucsedImage)}  class:visible>
     <div class="modal-content">
       <slot></slot>
     </div>
@@ -31,8 +32,8 @@
     }
   
     .modal-content {
-      background-color: white;
-      padding: 20px;
+      background-color: black;
+      padding: 5px;
       border-radius: 4px;
       box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     }
