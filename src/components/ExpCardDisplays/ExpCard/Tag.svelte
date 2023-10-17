@@ -42,7 +42,7 @@
                   "CronJob",
                   "Maven",
                   "Terminal",
-                  "Cuda",
+                  "CUDA",
                   "PThreads",
                   "OMP",
                   "SciNet",

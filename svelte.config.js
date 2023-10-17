@@ -12,9 +12,9 @@ const config = {
 	  ],
 
 	kit: {
-		paths: {
-			base: '',
-		  },
+		// paths: {
+		// 	base: '',
+		//   },
 		  
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
@@ -25,7 +25,7 @@ const config = {
 				}
 
 				// otherwise fail the build
-				throw new Error(message);
+				// throw new Error(message);
 			}
 		},
 

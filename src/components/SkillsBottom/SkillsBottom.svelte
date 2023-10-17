@@ -45,6 +45,7 @@
         border-bottom: none;
 
         padding-bottom: 3em;
+        height: 8.5em;
 	}
 
     .section-left {
@@ -59,10 +60,10 @@
         flex: 1;
         display: flex;
         gap: 1em;
-        visibility: hidden;
+        display: none;
     }
     .visible {
-        visibility: visible;
+        display: inherit;
     }
 
 
