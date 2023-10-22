@@ -8,6 +8,7 @@ export type ExpCard_T = {
     description: string;
     exprList: string[]
     mediaSources: Media[];
+    link? : string;
 
 };
 

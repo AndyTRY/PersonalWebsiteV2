@@ -309,6 +309,8 @@ export const cards: ExpCard_T[] = [
         } as Video,
       ],
 
+      link : "https://github.com/AndyTRY/Assembley-ShipGame"
+
     },
 
     {
@@ -399,7 +401,11 @@ export const cards: ExpCard_T[] = [
 
       mediaSources:  [],
 
+      link: "https://github.com/AndyTRY/PersonalWebsiteV2"
+
     },
+
+
 
 
     {

@@ -162,7 +162,10 @@
 
       <DotJotExprienceList exprList={card.exprList} />
     </div>
-  
-    <MediaCarousel mediaSources={card.mediaSources}/>
+    
+    <div class="right-container">
+      <MediaCarousel mediaSources={card.mediaSources}/>
+    </div>
+    
   </div>
 
