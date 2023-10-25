@@ -119,6 +119,13 @@
       width: 90%;
     }
 
+    .icon{
+      margin-top: 2em;
+      margin-bottom: 2em;
+      height: 2em;
+      width: 2em;
+    }
+
     @media (max-width: 1060px) {
         /* Apply styles for screens smaller than 768px wide (phones) */
         .card {
@@ -161,6 +168,14 @@
       <div class="description">{card.description}</div>
 
       <DotJotExprienceList exprList={card.exprList} />
+
+      {#if card.link}
+      <div class="github">
+        <a href="{card.link}" target="_blank" rel="noopener noreferrer">
+          <img class="icon" src="src/assets/otherIcons/github.svg" alt="github">
+        </a>
+      </div>
+      {/if}
     </div>
     
     <div class="right-container">
