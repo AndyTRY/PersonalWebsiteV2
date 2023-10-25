@@ -95,6 +95,8 @@ export const cards: ExpCard_T[] = [
 
       mediaSources:  [],
 
+      link: "https://github.com/AndyTRY/Collaboration-Ereader"
+
     },
 
     {
@@ -111,6 +113,8 @@ export const cards: ExpCard_T[] = [
       ],
 
       mediaSources:  [],
+
+      link: "https://github.com/namoosir/media-tracker-authentication-service"
 
     },
 
