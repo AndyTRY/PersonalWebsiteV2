@@ -2,7 +2,7 @@
 <script lang="ts">
     import  {type Writable, derived } from 'svelte/store';
     import { onMount } from 'svelte'; 
-    import type { ExpCard_T } from 'src/interface/ExpCard';
+    import { ExperienceType, type ExpCard_T } from 'src/interface/ExpCard';
 	import ExpCard from './ExpCard/ExpCard.svelte';
 
     import {isKeyboardEnabled,
@@ -11,6 +11,10 @@
          filterMode,
          searchFilterSkills,
          SkillFilterFlagList,
+         workExperienceCardScreenStatusS,
+         projectCardScreenStatusS,
+         
+
 
 		 FilterMode,
 
@@ -27,6 +31,7 @@
 
 
   export let cards: ExpCard_T[];
+  export let experienceType: ExperienceType;
   import {CARD_HEIGHT, INTER_CARD_GAP, SCROLL_OFFSET, SCROLL_DEBOUCE_TIME} from 'src/stores/consts'
 
   const filteredCards =  derived([filterMode, SkillFilterFlagList],([$filterMode, $SkillFilterFlagList]) => {
@@ -60,25 +65,25 @@
    });
    
 
-    function scrollIntoViewWithOffset(selector:Element, offset:number) {
-            window.scrollTo({
-                behavior: 'smooth',
-                top:
-                    selector.getBoundingClientRect().top -
-                    document.body.getBoundingClientRect().top -
-                    offset,
-            })
-    }
+    // function scrollIntoViewWithOffset(selector:Element, offset:number) {
+    //         window.scrollTo({
+    //             behavior: 'smooth',
+    //             top:
+    //                 selector.getBoundingClientRect().top -
+    //                 document.body.getBoundingClientRect().top -
+    //                 offset,
+    //         })
+    // }
 
     
-    function SnapPosition(position: number){
-        for (var i = 0; i < $filteredCards.length; i++) 
-            if (position > - (offset + i *(cardHeight + gap))){
-                let cardElement:Element = expList.children[i]
-                scrollIntoViewWithOffset(cardElement, scrollOffset)
-                return `SNAP TO CARD number ${i}`
-            }
-    }
+    // function SnapPosition(position: number){
+    //     for (var i = 0; i < $filteredCards.length; i++) 
+    //         if (position > - (offset + i *(cardHeight + gap))){
+    //             let cardElement:Element = expList.children[i]
+    //             scrollIntoViewWithOffset(cardElement, scrollOffset)
+    //             return `SNAP TO CARD number ${i}`
+    //         }
+    // }
 
     function UpdatePosition(position: number){
         if (position > topBoundary) {
@@ -126,14 +131,22 @@
     // }
     const observeCards = () => {
             observer = new IntersectionObserver(entries => {
+
+                const cardStatusS = experienceType == ExperienceType.WorkExperience ? workExperienceCardScreenStatusS : projectCardScreenStatusS
+                const cardStatus = {}
                 entries.forEach(entry => {
-                const cardNumber = entry.target.cardNumber;
-                if (entry.isIntersecting) {
-                    console.log(`Card ${cardNumber} on screen`);
-                } else {
-                    console.log(`Card ${cardNumber} off screen`);
-                }
+                    const cardNumber: number = entry.target.cardNumber;
+
+                    // if (entry.isIntersecting) {
+                    //     console.log(`Card ${cardNumber} on screen`);
+                    // } else {
+                    //     console.log(`Card ${cardNumber} off screen`);
+                    // }
+                    cardStatus[cardNumber] = entry.isIntersecting ? true : false
+
                 });
+                cardStatusS.set(cardStatus)
+                console.log("")
             });
         
             for (let i = 0; i < expList.children.length; i++) {

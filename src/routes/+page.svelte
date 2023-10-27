@@ -8,7 +8,7 @@
 
 
 	import KeyboardDropDown from 'src/components/KeyboardDropDown.svelte';
-
+	import CardListIndicators from 'src/components/CardListIndicators.svelte'
 	
 	import { isKeyboardEnabled, 
 			 boundaryRelationshipWorkExperienceSection,
@@ -67,6 +67,7 @@
 
 	<div class="side settings-bar">
 		<div class="with-padding">
+			<CardListIndicators/>
 			<SettingsBar/>
 			<div class="side-padding"></div>
 		</div>

@@ -151,3 +151,23 @@ export const screenMode = writable(ScreenMode.Normal);
 
 export const focusImageUrl = writable("");
 export const isFoucsedImage = writable(false);
+
+
+
+
+// CARDS ON SCREEN (List View Only)
+export const workExperienceCount = writable(0)
+export const projectExperienceCount = writable(0)
+
+const workExperienceCardScreenStatus:  { [key: string]: boolean } = {};
+Array.from(Array(20).keys()).forEach(id => {
+    workExperienceCardScreenStatus[id] = false;
+});
+export const workExperienceCardScreenStatusS = writable(workExperienceCardScreenStatus);
+
+const projectCardScreenStatus:  { [key: string]: boolean } = {};
+Array.from(Array(20).keys()).forEach(id => {
+    projectCardScreenStatus[id] = false;
+});
+export const projectCardScreenStatusS = writable(projectCardScreenStatus);
+

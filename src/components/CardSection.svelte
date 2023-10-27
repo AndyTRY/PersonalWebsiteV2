@@ -31,7 +31,7 @@
 
 
     {#if $experienceDisplayMode === DisplayMode.List}
-      <ExpCardList {cards} {boundaryRelationship} />
+      <ExpCardList {cards} {boundaryRelationship} {experienceType}/>
     {:else if $experienceDisplayMode === DisplayMode.Carousel}
       <ExpCardCarousel {cards} {boundaryRelationship} />
     {/if}
