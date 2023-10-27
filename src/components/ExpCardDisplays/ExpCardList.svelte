@@ -29,7 +29,6 @@
   export let cards: ExpCard_T[];
   import {CARD_HEIGHT, INTER_CARD_GAP, SCROLL_OFFSET, SCROLL_DEBOUCE_TIME} from 'src/stores/consts'
 
-
   const filteredCards =  derived([filterMode, SkillFilterFlagList],([$filterMode, $SkillFilterFlagList]) => {
     if ($filterMode == FilterMode.All) return cards
     else 
@@ -47,6 +46,7 @@
 
     let expList: Element;
     let scrollTimeoutTask: NodeJS.Timeout;
+    let observer: IntersectionObserver;
 
 
     const cardHeight = CARD_HEIGHT;
@@ -102,6 +102,17 @@
             const expListViewportPoisiton = expList.getBoundingClientRect().top;
             UpdatePosition(expListViewportPoisiton)
 
+
+            if (observer) observer.disconnect();
+            observeCards();
+            
+
+
+
+
+
+
+
             clearTimeout(scrollTimeoutTask);
             scrollTimeoutTask = setTimeout(() => {
                 isKeyboardVisible.set(true)
@@ -113,16 +124,41 @@
 
 
     // }
-
+    const observeCards = () => {
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                const cardNumber = entry.target.cardNumber;
+                if (entry.isIntersecting) {
+                    console.log(`Card ${cardNumber} on screen`);
+                } else {
+                    console.log(`Card ${cardNumber} off screen`);
+                }
+                });
+            });
+        
+            for (let i = 0; i < expList.children.length; i++) {
+                let card = expList.children[i];
+                card.cardNumber = i
+                observer.observe(card)
+            }
+        }
 
 
     onMount(() => {
         document.addEventListener('scroll', scrollHandler);
+        observeCards()
         return () => {              
             document.removeEventListener('scroll', scrollHandler);
             if (scrollTimeoutTask) {clearTimeout(scrollTimeoutTask);}
+            if (observer) observer.disconnect();
         };
     });
+
+    // onMount(() => {
+
+        
+        
+    // });
 
 
 </script>
