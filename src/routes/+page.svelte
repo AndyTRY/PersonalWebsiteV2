@@ -121,10 +121,11 @@
 		position: fixed;
 		width: 15%;
 		height: 100%;
-
-		.side-padding{
-			height: 0em;
-			width: 100%;
+		.with-padding{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 3em;
 		}
 	}
 

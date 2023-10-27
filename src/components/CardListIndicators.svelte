@@ -1,6 +1,6 @@
 <script>
 
-    import { workExperienceCardScreenStatusS, projectCardScreenStatusS, sectionState } from "src/stores/store";
+    import { workExperienceCardScreenStatusS, projectCardScreenStatusS, sectionState,  experienceDisplayMode, DisplayMode} from "src/stores/store";
     function handleClick() {
         console.log("WORK", $workExperienceCardScreenStatusS);
         console.log("PROJ", $projectCardScreenStatusS);
@@ -11,25 +11,26 @@
 
   </script>
   
-  <div class="dots" on:click="{() => handleClick()}">
-    {#if $sectionState == "WRK"}
-        {#each Object.keys($workExperienceCardScreenStatusS) as i}
-            <div class="dot {i} {$workExperienceCardScreenStatusS[i] ? 'active': ''} 
-                            {$workExperienceCardScreenStatusS[i] && $workExperienceCardScreenStatusS[i-1] === false? 'first-active': ''}
-                            {$workExperienceCardScreenStatusS[i] == false && $workExperienceCardScreenStatusS[i-1]? 'last-active': ''}"></div>
-        {/each}
-    {/if}
+  {#if $experienceDisplayMode == DisplayMode.List}
+        <div class="dots" on:click="{() => handleClick()}">
+            {#if $sectionState == "WRK"}
+                {#each Object.keys($workExperienceCardScreenStatusS) as i}
+                    <div class="dot {i} {$workExperienceCardScreenStatusS[i] ? 'active': ''} 
+                                    {$workExperienceCardScreenStatusS[i] && $workExperienceCardScreenStatusS[i-1] === false? 'first-active': ''}
+                                    {$workExperienceCardScreenStatusS[i] == false && $workExperienceCardScreenStatusS[i-1]? 'last-active': ''}"></div>
+                {/each}
+            {/if}
 
-    {#if $sectionState == "PRO"}
-        {#each Object.keys($projectCardScreenStatusS) as i}
-            <div class="dot {i} {$projectCardScreenStatusS[i] ? 'active': ''}
-                            {$projectCardScreenStatusS[i] && $projectCardScreenStatusS[i-1]== false? 'first-active': ''} 
-                            {$projectCardScreenStatusS[i] == false && $projectCardScreenStatusS[i-1]? 'last-active': ''}
-                            "></div>
-        {/each}
+            {#if $sectionState == "PRO"}
+                {#each Object.keys($projectCardScreenStatusS) as i}
+                    <div class="dot {i} {$projectCardScreenStatusS[i] ? 'active': ''}
+                                    {$projectCardScreenStatusS[i] && $projectCardScreenStatusS[i-1]== false? 'first-active': ''} 
+                                    {$projectCardScreenStatusS[i] == false && $projectCardScreenStatusS[i-1]? 'last-active': ''}
+                                    "></div>
+                {/each}
+            {/if}
+        </div>
     {/if}
-  </div>
-
   
   <style>
     .dots {

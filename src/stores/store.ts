@@ -45,8 +45,8 @@ export enum BoundaryRelationship{
     OutOfBoundsBottom = 2,
 
 }
-export const boundaryRelationshipWorkExperienceSection = writable(BoundaryRelationship.OutOfBoundsBottom)
-export const boundaryRelationshipProjectsSection  = writable(BoundaryRelationship.InBounds)
+export const boundaryRelationshipWorkExperienceSection = writable(BoundaryRelationship.OutOfBoundsTop)
+export const boundaryRelationshipProjectsSection  = writable(BoundaryRelationship.OutOfBoundsTop)
 
 export enum Section {
     Top = "TOP",
